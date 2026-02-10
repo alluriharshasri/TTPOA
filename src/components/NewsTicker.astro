@@ -10,9 +10,9 @@ const news = [
 ];
 ---
 
-<div class="news-ticker-wrapper bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 border-b-2 border-orange-400 shadow-lg">
+<div class="news-ticker-wrapper border-b-2 shadow-lg" style="background: var(--color-ticker-bg); border-bottom-color: var(--color-ticker-border);">
   <div class="w-full flex items-center">
-    <div class="ticker-label bg-orange-500 text-white px-6 py-3 font-bold text-sm uppercase tracking-wide flex items-center gap-2 shadow-lg">
+    <div class="ticker-label px-6 py-3 font-bold text-sm uppercase tracking-wide flex items-center gap-2 shadow-lg" style="background-color: var(--color-ticker-label-bg); color: var(--color-ticker-label-text);">
       <svg class="w-4 h-4 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
         <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/>
       </svg>
@@ -21,12 +21,12 @@ const news = [
     <div class="ticker-content flex-1 overflow-hidden py-3">
       <div class="ticker-scroll flex gap-12 animate-ticker">
         {news.map((item) => (
-          <a href={item.link} class="text-white hover:text-orange-300 text-sm font-medium whitespace-nowrap flex items-center gap-2 transition-colors duration-300">
+          <a href={item.link} class="text-sm font-medium whitespace-nowrap flex items-center gap-2 transition-colors duration-300" style="color: var(--color-ticker-text);">
             {item.text}
           </a>
         ))}
         {news.map((item) => (
-          <a href={item.link} class="text-white hover:text-orange-300 text-sm font-medium whitespace-nowrap flex items-center gap-2 transition-colors duration-300">
+          <a href={item.link} class="text-sm font-medium whitespace-nowrap flex items-center gap-2 transition-colors duration-300" style="color: var(--color-ticker-text);">
             {item.text}
           </a>
         ))}
@@ -59,6 +59,10 @@ const news = [
 
   .ticker-scroll:hover {
     animation-play-state: paused;
+  }
+
+  .ticker-scroll a:hover {
+    color: var(--color-ticker-text-hover);
   }
 
   @keyframes scroll-left {

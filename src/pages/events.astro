@@ -1,0 +1,512 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import AntigravityBg from '../components/AntigravityBg.astro';
+import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+
+// Import event images
+import event1Cover from '../assets/images/Event-1_1.jpeg';
+import event1_2 from '../assets/images/Event-1_2.jpeg';
+import event1_3 from '../assets/images/Event-1_3.jpeg';
+import event1_4 from '../assets/images/Event-1_4.jpeg';
+import event1_5 from '../assets/images/Event-1_5.jpeg';
+
+import event2Cover from '../assets/images/Event-2_1.jpeg';
+import event2_2 from '../assets/images/Event-2_2.jpeg';
+import event2_3 from '../assets/images/Event-2_3.jpeg';
+import event2_4 from '../assets/images/Event-2_4.jpeg';
+import event2_5 from '../assets/images/Event-2_5.jpeg';
+
+// Events data (newest first)
+const events = [
+  {
+    id: 'event-2',
+    name: 'Industry Academia Collaboration Summit 2026',
+    date: 'January 15, 2026',
+    venue: 'Hyderabad International Convention Centre',
+    coverImage: event2Cover,
+    images: [event2Cover, event2_2, event2_3, event2_4, event2_5],
+    description: 'A landmark event bringing together industry leaders and academic institutions to foster collaboration and innovation in training and placements.'
+  },
+  {
+    id: 'event-1',
+    name: 'Annual TPO Conference 2025',
+    date: 'December 10, 2025',
+    venue: 'JNTU Auditorium, Hyderabad',
+    coverImage: event1Cover,
+    images: [event1Cover, event1_2, event1_3, event1_4, event1_5],
+    description: 'Annual Training and Placement Officers Conference featuring TPOs, students, and industry representatives sharing best practices and placement strategies for career success.'
+  }
+];
+---
+
+<Layout title="Events - TTPOA">
+  <AntigravityBg />
+  <Navbar currentPage="events" />
+  
+  <main class="pt-32 lg:pt-36 pb-20 relative">
+    <!-- Decorative Background Elements -->
+    <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute top-40 right-10 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+    
+    <!-- Page Header -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 relative z-10">
+      <div class="text-center fade-up">
+        <div class="inline-block mb-6">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400 bg-clip-text text-transparent">
+            Event Timeline
+          </h1>
+          <div class="h-1 w-full bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 rounded-full"></div>
+        </div>
+        <p class="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
+          Explore our journey through memorable events, conferences, and workshops that shape the future of placements in Telangana
+        </p>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative">
+        <!-- Timeline Line -->
+        <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full timeline-line"></div>
+
+        <!-- Events -->
+        <div class="space-y-24">
+          {events.map((event, index) => (
+            <div 
+              class={`relative timeline-item ${index % 2 === 0 ? 'timeline-left' : 'timeline-right'}`}
+              data-event-id={event.id}
+            >
+              <!-- Timeline Dot -->
+              <div class="absolute left-1/2 top-0 transform -translate-x-1/2 w-6 h-6 rounded-full timeline-dot z-10"></div>
+
+              <!-- Event Card -->
+              <div class={`glass-card p-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer event-card ${index % 2 === 0 ? 'mr-auto lg:mr-[52%]' : 'ml-auto lg:ml-[52%]'}`}>
+                <!-- Cover Image -->
+                <div class="relative overflow-hidden rounded-xl mb-3 group">
+                  <Image 
+                    src={event.coverImage} 
+                    alt={event.name}
+                    class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-sm font-medium">Click to view gallery →</p>
+                  </div>
+                </div>
+
+                <!-- Event Details -->
+                <div>
+                  <h3 class="text-xl font-bold text-heading mb-2">{event.name}</h3>
+                  
+                  <div class="space-y-1.5 mb-3">
+                    <div class="flex items-center text-muted text-sm">
+                      <svg class="w-4 h-4 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                      </svg>
+                      <span class="font-medium">{event.date}</span>
+                    </div>
+                    
+                    <div class="flex items-start text-muted text-sm">
+                      <svg class="w-4 h-4 mr-2 mt-0.5 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                      </svg>
+                      <span class="font-medium">{event.venue}</span>
+                    </div>
+                  </div>
+
+                  <p class="text-body text-sm leading-relaxed">{event.description}</p>
+
+                  <div class="mt-3 flex items-center text-orange-500 font-medium text-sm">
+                    <span>View Gallery</span>
+                    <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="fixed inset-0 z-[100] hidden">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black/95 backdrop-blur-sm"></div>
+    
+    <!-- Content -->
+    <div class="relative h-full flex flex-col">
+      <!-- Header -->
+      <div class="flex items-center justify-between p-4 lg:p-6">
+        <div class="text-white">
+          <h3 id="lightbox-title" class="text-xl lg:text-2xl font-bold mb-1"></h3>
+          <p id="lightbox-date" class="text-sm text-white/70"></p>
+        </div>
+        <button id="close-lightbox" class="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" aria-label="Close">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Image Container -->
+      <div class="flex-1 flex items-center justify-center px-4 pb-20">
+        <div class="relative max-w-6xl w-full">
+          <!-- Navigation Buttons -->
+          <button id="prev-image" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center transition-all z-10" aria-label="Previous">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+          
+          <button id="next-image" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center transition-all z-10" aria-label="Next">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+
+          <!-- Image -->
+          <img id="lightbox-image" src="" alt="" class="w-full h-auto max-h-[70vh] object-contain rounded-lg shadow-2xl" />
+          
+          <!-- Image Counter -->
+          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-sm px-4 py-2 rounded-full">
+            <span id="image-counter" class="text-white text-sm font-medium"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>
+
+<style>
+  .timeline-line {
+    background: linear-gradient(to bottom, 
+      transparent 0%, 
+      rgba(249, 115, 22, 0.4) 5%,
+      var(--color-stats-glass-border) 10%, 
+      var(--color-stats-glass-border) 90%, 
+      rgba(249, 115, 22, 0.4) 95%,
+      transparent 100%
+    );
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+
+  .timeline-dot {
+    background: linear-gradient(135deg, #3b82f6, #f97316);
+    box-shadow: 0 0 0 4px var(--color-glass-card-bg), 
+                0 0 20px rgba(59, 130, 246, 0.5),
+                0 0 40px rgba(249, 115, 22, 0.3);
+    animation: pulse-dot 2s ease-in-out infinite;
+    position: relative;
+  }
+
+  .timeline-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(249, 115, 22, 0.3));
+    border-radius: 50%;
+    animation: ripple 2s ease-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+      box-shadow: 0 0 0 4px var(--color-glass-card-bg), 
+                  0 0 20px rgba(59, 130, 246, 0.5),
+                  0 0 40px rgba(249, 115, 22, 0.3);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.1);
+      box-shadow: 0 0 0 4px var(--color-glass-card-bg), 
+                  0 0 30px rgba(59, 130, 246, 0.8),
+                  0 0 60px rgba(249, 115, 22, 0.5);
+    }
+  }
+
+  @keyframes ripple {
+    0% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(2);
+    }
+  }
+
+  .timeline-item {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .timeline-left .event-card {
+    transform-origin: right center;
+  }
+
+  .timeline-right .event-card {
+    transform-origin: left center;
+  }
+
+  .event-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .event-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 70%
+    );
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+  }
+
+  .event-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  }
+
+  .event-card:hover::before {
+    opacity: 1;
+    animation: shimmer 1.5s ease-in-out;
+  }
+
+  @keyframes shimmer {
+    0% {
+      left: -50%;
+    }
+    100% {
+      left: 150%;
+    }
+  }
+
+  /* Fade animations */
+  .fade-up {
+    animation: fadeUp 0.8s ease-out;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive timeline */
+  @media (max-width: 1023px) {
+    .timeline-line {
+      left: 1rem !important;
+    }
+
+    .timeline-dot {
+      left: 1rem !important;
+      transform: translate(-50%, 0) !important;
+    }
+
+    .timeline-left .event-card,
+    .timeline-right .event-card {
+      margin-left: 3rem !important;
+      margin-right: 0 !important;
+    }
+  }
+
+  /* Lightbox animations */
+  #lightbox.active {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  #lightbox-image {
+    animation: zoomIn 0.3s ease-out;
+  }
+
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+</style>
+
+<script define:vars={{ events }}>
+  // Event data with resolved image paths
+  const eventsData = {};
+  
+  events.forEach(event => {
+    eventsData[event.id] = {
+      name: event.name,
+      date: event.date,
+      images: event.images.map(img => img.src)
+    };
+  });
+
+  let currentEventId = '';
+  let currentImageIndex = 0;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Intersection Observer for timeline items
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.2,
+      rootMargin: '0px 0px -100px 0px'
+    });
+
+    document.querySelectorAll('.timeline-item').forEach(item => {
+      observer.observe(item);
+    });
+
+    // Event card click handlers
+    document.querySelectorAll('.event-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const eventId = card.parentElement.dataset.eventId;
+        openLightbox(eventId);
+      });
+    });
+
+    // Lightbox controls
+    const lightbox = document.getElementById('lightbox');
+    const closeLightbox = document.getElementById('close-lightbox');
+    const prevImage = document.getElementById('prev-image');
+    const nextImage = document.getElementById('next-image');
+
+    closeLightbox?.addEventListener('click', () => {
+      lightbox?.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    prevImage?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navigateImage(-1);
+    });
+
+    nextImage?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navigateImage(1);
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox?.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      } else if (e.key === 'ArrowLeft') {
+        navigateImage(-1);
+      } else if (e.key === 'ArrowRight') {
+        navigateImage(1);
+      }
+    });
+
+    // Click backdrop to close
+    lightbox?.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+
+  function openLightbox(eventId) {
+    currentEventId = eventId;
+    currentImageIndex = 0;
+    
+    const event = eventsData[eventId];
+    if (!event) return;
+
+    const lightbox = document.getElementById('lightbox');
+    const title = document.getElementById('lightbox-title');
+    const date = document.getElementById('lightbox-date');
+    
+    if (title) title.textContent = event.name;
+    if (date) date.textContent = event.date;
+    
+    updateLightboxImage();
+    
+    lightbox?.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function navigateImage(direction) {
+    const event = eventsData[currentEventId];
+    if (!event) return;
+
+    currentImageIndex += direction;
+    
+    if (currentImageIndex < 0) {
+      currentImageIndex = event.images.length - 1;
+    } else if (currentImageIndex >= event.images.length) {
+      currentImageIndex = 0;
+    }
+    
+    updateLightboxImage();
+  }
+
+  function updateLightboxImage() {
+    const event = eventsData[currentEventId];
+    if (!event) return;
+
+    const img = document.getElementById('lightbox-image');
+    const counter = document.getElementById('image-counter');
+    
+    if (img) {
+      img.src = event.images[currentImageIndex];
+      img.alt = `${event.name} - Image ${currentImageIndex + 1}`;
+    }
+    
+    if (counter) {
+      counter.textContent = `${currentImageIndex + 1} / ${event.images.length}`;
+    }
+  }
+</script>
+---

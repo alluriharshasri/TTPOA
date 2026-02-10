@@ -3,6 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import AntigravityBg from '../components/AntigravityBg.astro';
 import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+import malePlaceholder from '../assets/images/MalePlaceholderImage.jpeg';
+import femalePlaceholder from '../assets/images/FemalePlaceholderImage.jpeg';
 
 // Core Committee Members
 const coreCommittee = [
@@ -12,7 +15,8 @@ const coreCommittee = [
     designation: "Vice President - All India TPO Association",
     institution: "Telangana TPO Association",
     email: "president@ttpoa.org.in",
-    phone: "+91 98765 43210"
+    phone: "+91 98765 43210",
+    gender: "male"
   },
   {
     name: "Prof. Sanjay Reddy",
@@ -20,7 +24,8 @@ const coreCommittee = [
     designation: "TPO Head",
     institution: "Osmania University",
     email: "vp@ttpoa.org.in",
-    phone: "+91 98765 43211"
+    phone: "+91 98765 43211",
+    gender: "male"
   },
   {
     name: "Mr. Venkat Rao",
@@ -28,7 +33,8 @@ const coreCommittee = [
     designation: "Placement Officer",
     institution: "IIIT Hyderabad",
     email: "secretary@ttpoa.org.in",
-    phone: "+91 98765 43212"
+    phone: "+91 98765 43212",
+    gender: "male"
   },
   {
     name: "Dr. Priya Sharma",
@@ -36,7 +42,8 @@ const coreCommittee = [
     designation: "Associate Professor",
     institution: "NIT Warangal",
     email: "treasurer@ttpoa.org.in",
-    phone: "+91 98765 43213"
+    phone: "+91 98765 43213",
+    gender: "female"
   }
 ];
 
@@ -48,7 +55,8 @@ const executiveMembers = [
     designation: "TPO",
     institution: "CVR College of Engineering",
     email: "krishna@ttpoa.org.in",
-    phone: "+91 98765 43214"
+    phone: "+91 98765 43214",
+    gender: "male"
   },
   {
     name: "Dr. Lakshmi Devi",
@@ -56,7 +64,8 @@ const executiveMembers = [
     designation: "Professor & TPO",
     institution: "Malla Reddy Engineering College",
     email: "lakshmi@ttpoa.org.in",
-    phone: "+91 98765 43215"
+    phone: "+91 98765 43215",
+    gender: "female"
   },
   {
     name: "Prof. Nagaraju",
@@ -64,7 +73,8 @@ const executiveMembers = [
     designation: "Training & Placement Officer",
     institution: "VNRVJIET",
     email: "nagaraju@ttpoa.org.in",
-    phone: "+91 98765 43216"
+    phone: "+91 98765 43216",
+    gender: "male"
   },
   {
     name: "Mr. Suresh Babu",
@@ -72,7 +82,8 @@ const executiveMembers = [
     designation: "Placement Coordinator",
     institution: "Chaitanya Bharathi Institute of Technology",
     email: "suresh@ttpoa.org.in",
-    phone: "+91 98765 43217"
+    phone: "+91 98765 43217",
+    gender: "male"
   },
   {
     name: "Dr. Anitha Reddy",
@@ -80,7 +91,8 @@ const executiveMembers = [
     designation: "Associate Professor",
     institution: "JNTUH College of Engineering",
     email: "anitha@ttpoa.org.in",
-    phone: "+91 98765 43218"
+    phone: "+91 98765 43218",
+    gender: "female"
   },
   {
     name: "Mr. Rajesh Kumar",
@@ -88,7 +100,8 @@ const executiveMembers = [
     designation: "TPO",
     institution: "Vasavi College of Engineering",
     email: "rajesh@ttpoa.org.in",
-    phone: "+91 98765 43219"
+    phone: "+91 98765 43219",
+    gender: "male"
   },
   {
     name: "Prof. Madhavi",
@@ -96,7 +109,8 @@ const executiveMembers = [
     designation: "Professor & Placement Head",
     institution: "Gokaraju Rangaraju Institute",
     email: "madhavi@ttpoa.org.in",
-    phone: "+91 98765 43220"
+    phone: "+91 98765 43220",
+    gender: "female"
   },
   {
     name: "Mr. Srinivas Rao",
@@ -104,7 +118,8 @@ const executiveMembers = [
     designation: "Training Officer",
     institution: "Institute of Aeronautical Engineering",
     email: "srinivas@ttpoa.org.in",
-    phone: "+91 98765 43221"
+    phone: "+91 98765 43221",
+    gender: "male"
   }
 ];
 ---
@@ -145,11 +160,11 @@ const executiveMembers = [
             <div class={`fade-up delay-${(index % 4 + 1) * 100} group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500`}>
               <!-- Member Image Placeholder -->
               <div class="relative aspect-[3/4] overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600">
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div class="text-white text-6xl font-bold opacity-20">
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </div>
-                </div>
+                <Image 
+                  src={member.gender === 'female' ? femalePlaceholder : malePlaceholder}
+                  alt={member.name}
+                  class="w-full h-full object-cover"
+                />
                 
                 <!-- Hover Details Overlay -->
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-6 flex flex-col justify-end">
@@ -203,11 +218,11 @@ const executiveMembers = [
             <div class={`fade-up delay-${(index % 4 + 1) * 100} group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500`}>
               <!-- Member Image Placeholder -->
               <div class="relative aspect-[3/4] overflow-hidden bg-gradient-to-br from-purple-500 to-pink-600">
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div class="text-white text-6xl font-bold opacity-20">
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </div>
-                </div>
+                <Image 
+                  src={member.gender === 'female' ? femalePlaceholder : malePlaceholder}
+                  alt={member.name}
+                  class="w-full h-full object-cover"
+                />
                 
                 <!-- Hover Details Overlay -->
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-6 flex flex-col justify-end">
