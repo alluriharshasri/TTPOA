@@ -4,46 +4,107 @@ import Navbar from '../components/Navbar.astro';
 import AntigravityBg from '../components/AntigravityBg.astro';
 import Footer from '../components/Footer.astro';
 
-const teamMembers = [
+// Core Committee Members
+const coreCommittee = [
   {
-    name: "Dr. Rajesh Kumar",
+    name: "Dr Jayaram",
     role: "President",
-    institution: "JNTU Hyderabad"
+    designation: "Vice President - All India TPO Association",
+    institution: "Telangana TPO Association",
+    email: "president@ttpoa.org.in",
+    phone: "+91 98765 43210"
   },
   {
     name: "Prof. Sanjay Reddy",
     role: "Vice President",
-    institution: "Osmania University"
+    designation: "TPO Head",
+    institution: "Osmania University",
+    email: "vp@ttpoa.org.in",
+    phone: "+91 98765 43211"
   },
   {
     name: "Mr. Venkat Rao",
     role: "General Secretary",
-    institution: "IIIT Hyderabad"
+    designation: "Placement Officer",
+    institution: "IIIT Hyderabad",
+    email: "secretary@ttpoa.org.in",
+    phone: "+91 98765 43212"
   },
   {
     name: "Dr. Priya Sharma",
     role: "Treasurer",
-    institution: "NIT Warangal"
-  },
+    designation: "Associate Professor",
+    institution: "NIT Warangal",
+    email: "treasurer@ttpoa.org.in",
+    phone: "+91 98765 43213"
+  }
+];
+
+// Executive Members
+const executiveMembers = [
   {
     name: "Mr. Krishna Murthy",
     role: "Joint Secretary",
-    institution: "CVR College of Engineering"
+    designation: "TPO",
+    institution: "CVR College of Engineering",
+    email: "krishna@ttpoa.org.in",
+    phone: "+91 98765 43214"
   },
   {
     name: "Dr. Lakshmi Devi",
     role: "Executive Member",
-    institution: "Malla Reddy Engineering College"
+    designation: "Professor & TPO",
+    institution: "Malla Reddy Engineering College",
+    email: "lakshmi@ttpoa.org.in",
+    phone: "+91 98765 43215"
   },
   {
     name: "Prof. Nagaraju",
     role: "Executive Member",
-    institution: "VNRVJIET"
+    designation: "Training & Placement Officer",
+    institution: "VNRVJIET",
+    email: "nagaraju@ttpoa.org.in",
+    phone: "+91 98765 43216"
   },
   {
     name: "Mr. Suresh Babu",
     role: "Executive Member",
-    institution: "Chaitanya Bharathi Institute of Technology"
+    designation: "Placement Coordinator",
+    institution: "Chaitanya Bharathi Institute of Technology",
+    email: "suresh@ttpoa.org.in",
+    phone: "+91 98765 43217"
+  },
+  {
+    name: "Dr. Anitha Reddy",
+    role: "Executive Member",
+    designation: "Associate Professor",
+    institution: "JNTUH College of Engineering",
+    email: "anitha@ttpoa.org.in",
+    phone: "+91 98765 43218"
+  },
+  {
+    name: "Mr. Rajesh Kumar",
+    role: "Executive Member",
+    designation: "TPO",
+    institution: "Vasavi College of Engineering",
+    email: "rajesh@ttpoa.org.in",
+    phone: "+91 98765 43219"
+  },
+  {
+    name: "Prof. Madhavi",
+    role: "Executive Member",
+    designation: "Professor & Placement Head",
+    institution: "Gokaraju Rangaraju Institute",
+    email: "madhavi@ttpoa.org.in",
+    phone: "+91 98765 43220"
+  },
+  {
+    name: "Mr. Srinivas Rao",
+    role: "Executive Member",
+    designation: "Training Officer",
+    institution: "Institute of Aeronautical Engineering",
+    email: "srinivas@ttpoa.org.in",
+    phone: "+91 98765 43221"
   }
 ];
 ---
@@ -61,7 +122,7 @@ const teamMembers = [
             Our Team
           </span>
           <h1 class="fade-up delay-100 text-4xl md:text-5xl font-bold text-white mb-6">
-            Association <span class="gradient-text">Members</span>
+            Association <span class="gradient-text">Committee</span>
           </h1>
           <p class="fade-up delay-200 text-lg text-white/90 leading-relaxed">
             Meet the dedicated professionals driving TTPOA's mission to bridge the gap between academia and industry.
@@ -70,57 +131,122 @@ const teamMembers = [
       </div>
     </section>
 
-    <!-- Leadership Team -->
+    <!-- Core Committee -->
     <section class="section-padding bg-white/5 backdrop-blur-sm">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-          <span class="fade-up inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+          <span class="fade-up inline-block bg-orange-100 text-orange-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
             Leadership
           </span>
           <h2 class="fade-up delay-100 text-3xl md:text-4xl font-bold text-white mb-4">
-            Executive Committee
+            Core Committee
           </h2>
+          <p class="fade-up delay-200 text-white/90 max-w-2xl mx-auto">
+            The visionary leaders steering TTPOA towards excellence
+          </p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {teamMembers.map((member, index) => (
-            <div class={`fade-up delay-${(index % 4 + 1) * 100} bg-slate-50 rounded-2xl p-6 text-center hover:shadow-xl hover:bg-white transition-all duration-300 group`}>
-              <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-105 transition-transform">
-                {member.name.split(' ').map(n => n[0]).join('')}
+          {coreCommittee.map((member, index) => (
+            <div class={`fade-up delay-${(index % 4 + 1) * 100} group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500`}>
+              <!-- Member Image Placeholder -->
+              <div class="relative aspect-[3/4] overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600">
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="text-white text-6xl font-bold opacity-20">
+                    {member.name.split(' ').map(n => n[0]).join('')}
+                  </div>
+                </div>
+                
+                <!-- Hover Details Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-6 flex flex-col justify-end">
+                  <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <p class="text-orange-400 text-sm font-semibold mb-2">{member.designation}</p>
+                    <div class="space-y-2 text-white/90 text-sm">
+                      <div class="flex items-center gap-2">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                          <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
+                        <span class="truncate">{member.email}</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                        </svg>
+                        <span>{member.phone}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 class="text-lg font-bold text-slate-900 mb-1">{member.name}</h3>
-              <p class="text-blue-600 font-medium text-sm mb-2">{member.role}</p>
-              <p class="text-slate-500 text-sm">{member.institution}</p>
+
+              <!-- Member Info -->
+              <div class="p-6 bg-white">
+                <h3 class="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
+                <p class="text-orange-600 font-semibold text-sm mb-2">{member.role}</p>
+                <p class="text-gray-600 text-sm">{member.institution}</p>
+              </div>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- Member Colleges Section -->
-    <section class="section-padding bg-gradient-to-b from-slate-50/20 to-transparent backdrop-blur-sm">
+    <!-- Executive Members -->
+    <section class="section-padding bg-gradient-to-b from-slate-50/10 to-transparent backdrop-blur-sm">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-          <span class="fade-up inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
-            Our Network
+          <span class="fade-up inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+            Team Members
           </span>
           <h2 class="fade-up delay-100 text-3xl md:text-4xl font-bold text-white mb-4">
-            Member Institutions
+            Executive Members
           </h2>
           <p class="fade-up delay-200 text-white/90 max-w-2xl mx-auto">
-            TTPOA represents over 500+ colleges and universities across Telangana State
+            Dedicated professionals working to strengthen placement opportunities
           </p>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {['Engineering Colleges', 'Polytechnics', 'Universities', 'Degree Colleges', 'MBA Institutes', 'MCA Institutes', 'Pharmacy Colleges', 'Other Institutions'].map((item, index) => (
-            <div class={`fade-up delay-${(index % 4 + 1) * 100} bg-white rounded-2xl p-6 text-center border border-slate-100 hover:border-blue-200 hover:shadow-lg transition-all`}>
-              <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-blue-50 flex items-center justify-center">
-                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                </svg>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {executiveMembers.map((member, index) => (
+            <div class={`fade-up delay-${(index % 4 + 1) * 100} group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500`}>
+              <!-- Member Image Placeholder -->
+              <div class="relative aspect-[3/4] overflow-hidden bg-gradient-to-br from-purple-500 to-pink-600">
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="text-white text-6xl font-bold opacity-20">
+                    {member.name.split(' ').map(n => n[0]).join('')}
+                  </div>
+                </div>
+                
+                <!-- Hover Details Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-6 flex flex-col justify-end">
+                  <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <p class="text-orange-400 text-sm font-semibold mb-2">{member.designation}</p>
+                    <div class="space-y-2 text-white/90 text-sm">
+                      <div class="flex items-center gap-2">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                          <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
+                        <span class="truncate">{member.email}</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                        </svg>
+                        <span>{member.phone}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 class="font-semibold text-slate-900">{item}</h3>
+
+              <!-- Member Info -->
+              <div class="p-6 bg-white">
+                <h3 class="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
+                <p class="text-purple-600 font-semibold text-sm mb-2">{member.role}</p>
+                <p class="text-gray-600 text-sm">{member.institution}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -132,7 +258,7 @@ const teamMembers = [
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-4 gap-8 text-center">
           <div class="fade-up delay-100 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-2xl p-8 shadow-xl hover:bg-white/15 transition-all">
-            <div class="text-4xl font-bold mb-2 counter" data-target="500">0</div>
+            <div class="text-4xl font-bold mb-2 counter" data-target="100">0</div>
             <p class="text-white/90 font-semibold">Member Colleges</p>
           </div>
           <div class="fade-up delay-200 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-2xl p-8 shadow-xl hover:bg-white/15 transition-all">
@@ -140,43 +266,18 @@ const teamMembers = [
             <p class="text-white/90 font-semibold">Partner Companies</p>
           </div>
           <div class="fade-up delay-300 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-2xl p-8 shadow-xl hover:bg-white/15 transition-all">
-            <div class="text-4xl font-bold mb-2 counter" data-target="1000">0</div>
+            <div class="text-4xl font-bold mb-2 counter" data-target="300">0</div>
             <p class="text-white/90 font-semibold">Active TPOs</p>
           </div>
           <div class="fade-up delay-400 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-2xl p-8 shadow-xl hover:bg-white/15 transition-all">
-            <div class="text-4xl font-bold mb-2 counter" data-target="10">0</div>
+            <div class="text-4xl font-bold mb-2 counter" data-target="6">0</div>
             <p class="text-white/90 font-semibold">Years of Service</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Join Section -->
-    <section class="section-padding">
-      <div class="max-w-7xl mx-auto px-1 sm:px-1.5 lg:px-2">
-        <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 rounded-3xl p-12 shadow-2xl text-center relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl"></div>
-          <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"></div>
-          <div class="relative z-10">
-            <h2 class="fade-up text-3xl md:text-4xl font-bold mb-6 text-white">Become a Member</h2>
-            <p class="fade-up delay-100 text-white/95 text-lg mb-8 max-w-2xl mx-auto">
-              Join TTPOA and become part of Telangana's largest network of Training & Placement professionals.
-            </p>
-            <div class="fade-up delay-200 flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://ttpoa.org.in/index.php/Tpo_auth/register" class="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl hover:scale-105">
-                Register as TPO
-                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
-              </a>
-              <a href={`${import.meta.env.BASE_URL}/contact/`} class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:bg-white/10 transition-all hover:scale-105">
-                Contact Us
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+
   </main>
 
   <Footer />

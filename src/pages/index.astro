@@ -8,6 +8,7 @@ import { Image } from 'astro:assets';
 import heroImage from '../assets/images/Image1.jpg';
 import image2 from '../assets/images/Image2.jpg';
 import image3 from '../assets/images/Image3.jpg';
+import presidentImage from '../assets/images/President_Image.jpeg';
 ---
 
 <Layout title="TTPOA - Telangana Training and Placement Officers Association">
@@ -111,48 +112,50 @@ import image3 from '../assets/images/Image3.jpg';
       </div>
     </section>
 
-    <!-- Quick Navigation Section -->
-    <section class="section-padding">
-      <div class="max-w-7xl mx-auto px-2 sm:px-3 lg:px-4">
+    <!-- President's Note Section -->
+    <section class="py-12 md:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
-          <h2 class="fade-up text-3xl md:text-4xl font-bold text-white mb-4">Quick Access Portals</h2>
-          <p class="fade-up delay-100 text-white/95 max-w-2xl mx-auto">Choose your portal to get started</p>
+          <h2 class="fade-up text-3xl md:text-4xl font-bold text-white mb-4">President's Welcome Note</h2>
+          <p class="fade-up delay-100 text-white/95 max-w-2xl mx-auto">TTPOA – Global TPO & HR Summit 2025</p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-          <!-- Student Cell -->
-          <a href="https://ttpoa.org.in/index.php/Login/index" class="fade-up delay-100 service-card group text-center hover:scale-105 transition-transform">
-            <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center group-hover:from-blue-600 group-hover:to-blue-700 transition-all shadow-lg">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
-              </svg>
+        <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl overflow-hidden shadow-2xl">
+          <div class="grid md:grid-cols-3 gap-8 p-8 md:p-12 items-center">
+            <!-- President Image -->
+            <div class="fade-left md:col-span-1">
+              <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/30 max-w-xs mx-auto animate-float">
+                <Image src={presidentImage} alt="Dr Jayaram - President" class="w-full h-auto object-cover" />
+              </div>
             </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-white transition-colors">Student Cell</h3>
-            <p class="text-gray-600 text-sm leading-relaxed group-hover:text-white/90 transition-colors">Access career guidance, job listings, and placement opportunities</p>
-          </a>
 
-          <!-- TPO Cell -->
-          <a href="https://ttpoa.org.in/index.php/Tpo_auth/login" class="fade-up delay-200 service-card group text-center hover:scale-105 transition-transform">
-            <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center group-hover:from-purple-600 group-hover:to-purple-700 transition-all shadow-lg">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-              </svg>
+            <!-- President's Message -->
+            <div class="fade-right md:col-span-2 flex flex-col justify-center">
+              <div class="mb-6">
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">Dr Jayaram</h3>
+                <p class="text-orange-400 font-semibold text-base mb-1">Vice President</p>
+                <p class="text-orange-300 font-medium text-sm">All India TPO Association</p>
+                <p class="text-orange-400 font-semibold text-base mt-1">&</p>
+                <p class="text-orange-400 font-semibold text-base">President</p>
+                <p class="text-orange-300 font-medium text-sm">Telangana TPO Association</p>
+              </div>
+              
+              <div class="space-y-4 text-white/90 leading-relaxed text-sm md:text-base">
+                <p>
+                  It gives me immense pleasure to welcome you all to the TTPOA – Global TPO & HR Summit 2025 being held at Hyderabad.
+                </p>
+                <p>
+                  The 1st Global TPO & HR Summit will be an annual landmark summit involving academia and the industry to collaborate in advancing the latest technologies and understanding the skills for the next generation.
+                </p>
+                <p>
+                  The theme of the Global TPO & HR Summit is <span class="font-semibold text-orange-400">Talent – Trade – Tourism</span>, in exploring the opportunity and strengthening the workforce as per the requirements of the industry.
+                </p>
+                <p>
+                  I extend a warm welcome to all the Training and Placement Officers across India, industry leaders, academic partners, training partners, overseas partners and global partners. I feel your insights and contributions will help to shape pathways for inclusive, skillful and future-ready leaders.
+                </p>
+              </div>
             </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-white transition-colors">TPO Cell</h3>
-            <p class="text-gray-600 text-sm leading-relaxed group-hover:text-white/90 transition-colors">Manage placement activities and connect with organizations</p>
-          </a>
-
-          <!-- Organization Cell -->
-          <a href="https://ttpoa.org.in/index.php/Company_auth/login" class="fade-up delay-300 service-card group text-center hover:scale-105 transition-transform">
-            <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center group-hover:from-orange-600 group-hover:to-orange-700 transition-all shadow-lg">
-              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-white transition-colors">Organization Cell</h3>
-            <p class="text-gray-600 text-sm leading-relaxed group-hover:text-white/90 transition-colors">Post jobs, browse candidates, and conduct recruitment drives</p>
-          </a>
+          </div>
         </div>
       </div>
     </section>
@@ -221,153 +224,204 @@ import image3 from '../assets/images/Image3.jpg';
       </div>
     </section>
 
-    <!-- Placed Students / Success Stories -->
+    <!-- Recent Activities Section -->
     <section class="py-20 relative overflow-hidden">
       <!-- Background Effects -->
       <div class="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white/60 to-orange-50/80 backdrop-blur-sm"></div>
       <div class="absolute top-0 left-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
       <div class="absolute bottom-0 right-0 w-96 h-96 bg-orange-400/10 rounded-full blur-3xl"></div>
       
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div class="text-center">
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
           <div class="inline-flex items-center bg-gradient-to-r from-blue-500/20 to-orange-500/20 backdrop-blur-md px-6 py-3 rounded-full text-sm font-bold mb-6 border border-white/30 shadow-lg">
             <svg class="w-5 h-5 mr-2 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
             </svg>
-            Success Stories
+            Recent Activities
           </div>
           <h2 class="text-4xl md:text-5xl font-bold mb-4">
-            <span class="bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">Our Placed Students</span>
+            <span class="bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">Latest Events & Updates</span>
           </h2>
           <p class="text-gray-700 text-lg max-w-2xl mx-auto">
-            Celebrating successful careers launched through TTPOA's comprehensive placement support
+            Stay updated with the latest happenings and achievements at TTPOA
           </p>
         </div>
-      </div>
-      
-      <!-- Interactive Student Showcase -->
-      <div class="relative">
-        <!-- Dual Ticker Animation -->
-        <div class="mb-8">
-          <div class="flex animate-ticker space-x-8 hover:animation-paused">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => (
-              <div class="flex-shrink-0 group">
-                <div class="relative w-40 h-40 rounded-2xl overflow-hidden border-4 border-transparent bg-gradient-to-br from-blue-500 via-purple-500 to-orange-500 p-1 shadow-2xl hover:scale-110 transition-all duration-300">
-                  <div class="w-full h-full rounded-xl overflow-hidden bg-white">
-                    <img src={`https://ui-avatars.com/api/?name=Student+${i}&background=random&color=fff&size=160&bold=true`} alt={`Student ${i}`} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                  </div>
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-                    <div class="text-white text-center">
-                      <p class="font-bold text-sm">Student {i}</p>
-                      <p class="text-xs text-orange-300">Placed 2026</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => (
-              <div class="flex-shrink-0 group">
-                <div class="relative w-40 h-40 rounded-2xl overflow-hidden border-4 border-transparent bg-gradient-to-br from-blue-500 via-purple-500 to-orange-500 p-1 shadow-2xl hover:scale-110 transition-all duration-300">
-                  <div class="w-full h-full rounded-xl overflow-hidden bg-white">
-                    <img src={`https://ui-avatars.com/api/?name=Student+${i}&background=random&color=fff&size=160&bold=true`} alt={`Student ${i}`} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                  </div>
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-                    <div class="text-white text-center">
-                      <p class="font-bold text-sm">Student {i}</p>
-                      <p class="text-xs text-orange-300">Placed 2026</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <!-- Reverse Ticker -->
-        <div>
-          <div class="flex animate-ticker-reverse space-x-8 hover:animation-paused">
-            {[13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24].map((i) => (
-              <div class="flex-shrink-0 group">
-                <div class="relative w-40 h-40 rounded-2xl overflow-hidden border-4 border-transparent bg-gradient-to-br from-orange-500 via-pink-500 to-blue-500 p-1 shadow-2xl hover:scale-110 transition-all duration-300">
-                  <div class="w-full h-full rounded-xl overflow-hidden bg-white">
-                    <img src={`https://ui-avatars.com/api/?name=Student+${i}&background=random&color=fff&size=160&bold=true`} alt={`Student ${i}`} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                  </div>
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-                    <div class="text-white text-center">
-                      <p class="font-bold text-sm">Student {i}</p>
-                      <p class="text-xs text-orange-300">Placed 2026</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-            {[13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24].map((i) => (
-              <div class="flex-shrink-0 group">
-                <div class="relative w-40 h-40 rounded-2xl overflow-hidden border-4 border-transparent bg-gradient-to-br from-orange-500 via-pink-500 to-blue-500 p-1 shadow-2xl hover:scale-110 transition-all duration-300">
-                  <div class="w-full h-full rounded-xl overflow-hidden bg-white">
-                    <img src={`https://ui-avatars.com/api/?name=Student+${i}&background=random&color=fff&size=160&bold=true`} alt={`Student ${i}`} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                  </div>
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-                    <div class="text-white text-center">
-                      <p class="font-bold text-sm">Student {i}</p>
-                      <p class="text-xs text-orange-300">Placed 2026</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <!-- Stats Banner -->
-      <div class="relative mt-16 max-w-5xl mx-auto px-4">
-        <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 shadow-2xl">
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div class="group">
-              <div class="text-4xl md:text-5xl font-bold text-white mb-2 group-hover:scale-110 transition-transform counter" data-target="500">0</div>
-              <div class="text-white/90 text-sm md:text-base font-semibold">Students Placed</div>
-            </div>
-            <div class="group">
-              <div class="text-4xl md:text-5xl font-bold text-white mb-2 group-hover:scale-110 transition-transform counter" data-target="150">0</div>
-              <div class="text-white/90 text-sm md:text-base font-semibold">Partner Companies</div>
-            </div>
-            <div class="group">
-              <div class="text-4xl md:text-5xl font-bold text-white mb-2 group-hover:scale-110 transition-transform">12 LPA</div>
-              <div class="text-white/90 text-sm md:text-base font-semibold">Highest Package</div>
-            </div>
-            <div class="group">
-              <div class="text-4xl md:text-5xl font-bold text-white mb-2 group-hover:scale-110 transition-transform counter" data-target="95">0</div>
-              <div class="text-blue-100 text-sm md:text-base">Placement Rate</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="section-padding">
-      <div class="max-w-4xl mx-auto px-1 sm:px-1.5 lg:px-2 text-center">
-        <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 rounded-3xl p-12 shadow-2xl relative overflow-hidden">
-          <!-- Decorative elements -->
-          <div class="absolute top-0 right-0 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl"></div>
-          <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"></div>
-          
-          <div class="relative z-10">
-            <h2 class="fade-up text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Start Your Career Journey?</h2>
-            <p class="fade-up delay-100 text-white/95 text-lg mb-8 max-w-2xl mx-auto">
-              Join thousands of students who have found their dream careers through TTPOA's comprehensive placement services.
-            </p>
-            <div class="fade-up delay-200 flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://ttpoa.org.in/index.php/Login/index" class="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-700 font-semibold rounded-xl hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl hover:scale-105">
-                Get Started
-                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        
+        <!-- Activity Cards Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Activity Card 1 -->
+          <div class="fade-up delay-100 bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:scale-105 border border-gray-100">
+            <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-600 relative overflow-hidden">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg class="w-20 h-20 text-white/20" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
+                  <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/>
                 </svg>
-              </a>
-              <a href={`${import.meta.env.BASE_URL}/contact/`} class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:bg-white/10 transition-all backdrop-blur-sm hover:scale-105">
-                Contact Us
-              </a>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                </svg>
+                February 5, 2026
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Annual Placement Summit 2026</h3>
+              <p class="text-gray-600 mb-4 leading-relaxed">
+                Successfully conducted the Annual Placement Summit with participation from 200+ colleges and 150+ companies across Telangana.
+              </p>
+              <div class="flex items-center text-blue-600 font-semibold text-sm">
+                <span>Read More</span>
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity Card 2 -->
+          <div class="fade-up delay-200 bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:scale-105 border border-gray-100">
+            <div class="h-48 bg-gradient-to-br from-purple-500 to-purple-600 relative overflow-hidden">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg class="w-20 h-20 text-white/20" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/>
+                  <path d="M5.868 10.196a1 1 0 00-.788 1.838l4.73 2.034a1 1 0 00.788 0l7-3a1 1 0 00-.788-1.838l-6.606 2.832-4.336-1.866z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                </svg>
+                January 28, 2026
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Skill Development Workshop</h3>
+              <p class="text-gray-600 mb-4 leading-relaxed">
+                Organized a comprehensive skill development workshop focusing on AI, Machine Learning, and Data Science for students across member institutions.
+              </p>
+              <div class="flex items-center text-purple-600 font-semibold text-sm">
+                <span>Read More</span>
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity Card 3 -->
+          <div class="fade-up delay-300 bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:scale-105 border border-gray-100">
+            <div class="h-48 bg-gradient-to-br from-orange-500 to-orange-600 relative overflow-hidden">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg class="w-20 h-20 text-white/20" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                </svg>
+                January 15, 2026
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Industry Partnership Initiative</h3>
+              <p class="text-gray-600 mb-4 leading-relaxed">
+                Launched new partnerships with 25+ leading tech companies to enhance placement opportunities and provide industry exposure to students.
+              </p>
+              <div class="flex items-center text-orange-600 font-semibold text-sm">
+                <span>Read More</span>
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity Card 4 -->
+          <div class="fade-up delay-100 bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:scale-105 border border-gray-100">
+            <div class="h-48 bg-gradient-to-br from-green-500 to-green-600 relative overflow-hidden">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg class="w-20 h-20 text-white/20" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                </svg>
+                December 20, 2025
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">TPO Training Program</h3>
+              <p class="text-gray-600 mb-4 leading-relaxed">
+                Conducted specialized training program for TPOs focusing on modern placement strategies, digital recruitment tools, and best practices.
+              </p>
+              <div class="flex items-center text-green-600 font-semibold text-sm">
+                <span>Read More</span>
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity Card 5 -->
+          <div class="fade-up delay-200 bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:scale-105 border border-gray-100">
+            <div class="h-48 bg-gradient-to-br from-pink-500 to-pink-600 relative overflow-hidden">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg class="w-20 h-20 text-white/20" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                </svg>
+                November 30, 2025
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Virtual Job Fair 2025</h3>
+              <p class="text-gray-600 mb-4 leading-relaxed">
+                Successfully hosted a virtual job fair connecting 10,000+ students with 100+ companies, resulting in 2,500+ placement offers.
+              </p>
+              <div class="flex items-center text-pink-600 font-semibold text-sm">
+                <span>Read More</span>
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity Card 6 -->
+          <div class="fade-up delay-300 bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:scale-105 border border-gray-100">
+            <div class="h-48 bg-gradient-to-br from-indigo-500 to-indigo-600 relative overflow-hidden">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg class="w-20 h-20 text-white/20" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                </svg>
+                November 10, 2025
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Academic Excellence Awards</h3>
+              <p class="text-gray-600 mb-4 leading-relaxed">
+                Recognized outstanding TPOs and member institutions for their exceptional contribution to student placements and career development.
+              </p>
+              <div class="flex items-center text-indigo-600 font-semibold text-sm">
+                <span>Read More</span>
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </div>
             </div>
           </div>
         </div>

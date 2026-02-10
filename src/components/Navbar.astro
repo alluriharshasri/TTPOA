@@ -19,8 +19,8 @@ const baseUrl = import.meta.env.BASE_URL;
           <Image src={logo} alt="TTPOA Logo" class="w-full h-full object-cover" />
         </div>
         <div class="hidden sm:block">
-          <span class="text-lg lg:text-xl font-bold text-white">TTPOA</span>
-          <p class="text-[10px] text-blue-200 leading-tight hidden md:block">Telangana Training & Placement Officers</p>
+          <p class="text-xs lg:text-sm text-white leading-tight font-semibold">Telangana Training & Placement Officers Association</p>
+          <span class="text-[10px] lg:text-xs font-bold text-white/60">TTPOA</span>
         </div>
       </a>
 
@@ -29,55 +29,12 @@ const baseUrl = import.meta.env.BASE_URL;
         <a href={baseUrl} class={`px-5 py-2.5 rounded-lg font-medium transition-all ${currentPage === 'home' ? 'text-white bg-white/20' : 'text-white/90 hover:text-white hover:bg-white/10'}`}>Home</a>
         <a href={`${baseUrl}/about/`} class={`px-5 py-2.5 rounded-lg font-medium transition-all ${currentPage === 'about' ? 'text-white bg-white/20' : 'text-white/90 hover:text-white hover:bg-white/10'}`}>About</a>
         <a href={`${baseUrl}/services/`} class={`px-5 py-2.5 rounded-lg font-medium transition-all ${currentPage === 'services' ? 'text-white bg-white/20' : 'text-white/90 hover:text-white hover:bg-white/10'}`}>Services</a>
-        <a href={`${baseUrl}/members/`} class={`px-5 py-2.5 rounded-lg font-medium transition-all ${currentPage === 'members' ? 'text-white bg-white/20' : 'text-white/90 hover:text-white hover:bg-white/10'}`}>Members</a>
+        <a href={`${baseUrl}/members/`} class={`px-5 py-2.5 rounded-lg font-medium transition-all ${currentPage === 'members' ? 'text-white bg-white/20' : 'text-white/90 hover:text-white hover:bg-white/10'}`}>Committee</a>
+        <a href={`${baseUrl}/gallery/`} class={`px-5 py-2.5 rounded-lg font-medium transition-all ${currentPage === 'gallery' ? 'text-white bg-white/20' : 'text-white/90 hover:text-white hover:bg-white/10'}`}>Gallery</a>
         <a href={`${baseUrl}/contact/`} class={`px-5 py-2.5 rounded-lg font-medium transition-all ${currentPage === 'contact' ? 'text-white bg-white/20' : 'text-white/90 hover:text-white hover:bg-white/10'}`}>Contact</a>
       </div>
 
-      <!-- Login Dropdown -->
-      <div class="hidden lg:flex items-center space-x-4">
-        <div class="relative group">
-          <button class="flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-orange-600 border border-orange-400 text-white px-5 py-2.5 rounded-lg font-medium hover:from-orange-600 hover:to-orange-700 transition-all shadow-lg">
-            <span>Login</span>
-            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-          <div class="absolute top-full right-0 mt-2 w-56 bg-white rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 overflow-hidden border-2 border-blue-200">
-            <a href="https://ttpoa.org.in/index.php/Login/index" class="flex items-center space-x-3 px-4 py-3 hover:bg-blue-50 transition-colors border-b border-gray-100">
-              <div class="w-8 h-8 rounded-lg bg-blue-500/80 flex items-center justify-center text-white text-sm shadow-lg">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/>
-                </svg>
-              </div>
-              <span class="text-sm font-medium text-gray-700">Student Login</span>
-            </a>
-            <a href="https://ttpoa.org.in/index.php/Tpo_auth/login" class="flex items-center space-x-3 px-4 py-3 hover:bg-blue-50 transition-colors border-b border-gray-100">
-              <div class="w-8 h-8 rounded-lg bg-purple-500 flex items-center justify-center text-white text-sm shadow-lg">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"/>
-                </svg>
-              </div>
-              <span class="text-sm font-medium text-gray-700">TPO Cell Login</span>
-            </a>
-            <a href="https://ttpoa.org.in/index.php/Company_auth/login" class="flex items-center space-x-3 px-4 py-3 hover:bg-blue-50 transition-colors border-b border-gray-100">
-              <div class="w-8 h-8 rounded-lg bg-orange-500 flex items-center justify-center text-white text-sm shadow-lg">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd"/>
-                </svg>
-              </div>
-              <span class="text-sm font-medium text-gray-700">Organization Login</span>
-            </a>
-            <a href="https://ttpoa.org.in/index.php/Admin_auth/login" class="flex items-center space-x-3 px-4 py-3 hover:bg-blue-50 transition-colors">
-              <div class="w-8 h-8 rounded-lg bg-red-500 flex items-center justify-center text-white text-sm shadow-lg">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-              </div>
-              <span class="text-sm font-medium text-gray-700">Super Admin Login</span>
-            </a>
-          </div>
-        </div>
-      </div>
+
 
       <!-- Mobile Menu Button -->
       <button class="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors text-white" id="mobile-menu-btn" aria-label="Toggle menu">
@@ -97,28 +54,10 @@ const baseUrl = import.meta.env.BASE_URL;
       <a href={baseUrl} class={`block px-4 py-3 rounded-xl transition-colors ${currentPage === 'home' ? 'text-blue-700 bg-blue-50 font-medium' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-700'}`}>Home</a>
       <a href={`${baseUrl}/about/`} class={`block px-4 py-3 rounded-xl transition-colors ${currentPage === 'about' ? 'text-blue-700 bg-blue-50 font-medium' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-700'}`}>About</a>
       <a href={`${baseUrl}/services/`} class={`block px-4 py-3 rounded-xl transition-colors ${currentPage === 'services' ? 'text-blue-700 bg-blue-50 font-medium' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-700'}`}>Services</a>
-      <a href={`${baseUrl}/members/`} class={`block px-4 py-3 rounded-xl transition-colors ${currentPage === 'members' ? 'text-blue-700 bg-blue-50 font-medium' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-700'}`}>Members</a>
+      <a href={`${baseUrl}/members/`} class={`block px-4 py-3 rounded-xl transition-colors ${currentPage === 'members' ? 'text-blue-700 bg-blue-50 font-medium' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-700'}`}>Committee</a>
+      <a href={`${baseUrl}/gallery/`} class={`block px-4 py-3 rounded-xl transition-colors ${currentPage === 'gallery' ? 'text-blue-700 bg-blue-50 font-medium' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-700'}`}>Gallery</a>
       <a href={`${baseUrl}/contact/`} class={`block px-4 py-3 rounded-xl transition-colors ${currentPage === 'contact' ? 'text-blue-700 bg-blue-50 font-medium' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-700'}`}>Contact</a>
-      
-      <div class="border-t border-gray-200 pt-4 mt-4">
-        <p class="text-xs text-gray-500 px-4 mb-3 uppercase tracking-wider font-medium">Login Options</p>
-        <a href="https://ttpoa.org.in/index.php/Login/index" class="flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700">
-          <div class="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center text-white text-xs font-bold shadow-lg">S</div>
-          <span class="font-medium">Student Login</span>
-        </a>
-        <a href="https://ttpoa.org.in/index.php/Tpo_auth/login" class="flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700">
-          <div class="w-8 h-8 rounded-lg bg-purple-500 flex items-center justify-center text-white text-xs font-bold shadow-lg">T</div>
-          <span class="font-medium">TPO Cell Login</span>
-        </a>
-        <a href="https://ttpoa.org.in/index.php/Company_auth/login" class="flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700">
-          <div class="w-8 h-8 rounded-lg bg-orange-500 flex items-center justify-center text-white text-xs font-bold shadow-lg">O</div>
-          <span class="font-medium">Organization Login</span>
-        </a>
-        <a href="https://ttpoa.org.in/index.php/Admin_auth/login" class="flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-blue-50 text-gray-700">
-          <div class="w-8 h-8 rounded-lg bg-red-500 flex items-center justify-center text-white text-xs font-bold shadow-lg">A</div>
-          <span class="font-medium">Super Admin Login</span>
-        </a>
-      </div>
+
     </div>
   </div>
 </nav>
