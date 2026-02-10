@@ -9,6 +9,7 @@ import heroImage from '../assets/images/Image1.jpg';
 import image2 from '../assets/images/Image2.jpg';
 import image3 from '../assets/images/Image3.jpg';
 import presidentImage from '../assets/images/President_Image.jpeg';
+import mainImage from '../assets/images/MainImage.jpeg';
 ---
 
 <Layout title="TTPOA - Telangana Training and Placement Officers Association">
@@ -16,146 +17,164 @@ import presidentImage from '../assets/images/President_Image.jpeg';
   <Navbar currentPage="home" />
   <NewsTicker />
   
-  <main class="pt-20 lg:pt-24">
-    <!-- Hero Section -->
-    <section class="relative min-h-[80vh] flex items-center overflow-hidden">
-      <!-- Background Pattern -->
-      <div class="absolute inset-0 bg-pattern opacity-20"></div>
+  <main>
+    <!-- Hero Section with Background Image -->
+    <section class="relative min-h-screen flex flex-col justify-center overflow-visible">
+      <!-- Full Width Background Image -->
+      <div class="absolute inset-0 -top-20 lg:-top-24">
+        <Image 
+          src={mainImage} 
+          alt="TTPOA Hero Background" 
+          class="w-full h-full object-cover object-top"
+        />
+        <!-- Dark Overlay for better text visibility -->
+        <div class="absolute inset-0 bg-black/50"></div>
+      </div>
       
-      <div class="relative max-w-7xl mx-auto px-1 sm:px-1.5 lg:px-2 py-16">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <!-- Left Content -->
-          <div class="text-center lg:text-left">
-            <h1 class="fade-up text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Start Your <span class="gradient-text">Career</span> & Pursue Your <span class="gradient-text">Passion</span>
-            </h1>
-            
-            <p class="fade-up delay-100 text-lg text-white/95 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              We help our clients succeed by creating brand identities, digital experiences, and connecting talents with opportunities.
-            </p>
-            
-            <div class="fade-up delay-200 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
-              <a href={`${import.meta.env.BASE_URL}/services/`} class="btn-primary">
-                View Our Programs
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      <!-- Centered Content -->
+      <div class="relative z-10 w-full flex-1 flex items-center pt-52 lg:pt-60">
+        <div class="text-center px-4 sm:px-6 lg:px-8 w-full pb-32">
+          <h1 class="fade-up text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight max-w-5xl mx-auto">
+            Connecting Talent & Opportunity: Telangana's Premier <span class="gradient-text">TPO Network</span>
+          </h1>
+          
+          <p class="fade-up delay-100 text-lg md:text-xl text-white mb-8 max-w-4xl mx-auto leading-relaxed">
+            Empowering Students | Strengthening Institutions | Driving Placements
+          </p>
+          
+          <div class="fade-up delay-200 flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href={`${import.meta.env.BASE_URL}/services/`} class="btn-primary">
+              View Our Programs
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+            <a href={`${import.meta.env.BASE_URL}/contact/`} class="glass-btn">
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Glass Container - Overlapping Both Sections -->
+    <div class="relative -mt-24 z-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="stats-glass-container scroll-reveal" style="opacity: 0; transform: translateY(50px); visibility: hidden;">
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <!-- Stat 1 -->
+            <div class="text-center group">
+              <div class="flex items-center justify-center mb-2">
+                <svg class="w-8 h-8 text-orange-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                 </svg>
-              </a>
-              <a href={`${import.meta.env.BASE_URL}/contact/`} class="btn-outline">
-                Contact Us
-              </a>
-            </div>
-          </div>
-
-          <!-- Right Content - Hero Image -->
-          <div class="fade-right delay-100 relative hidden lg:block">
-            <div class="relative animate-float">
-              <div class="absolute -inset-4 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-3xl blur-3xl"></div>
-              <div class="relative overflow-hidden rounded-3xl shadow-2xl border-4 border-white/30">
-                <Image src={heroImage} alt="TTPOA Students" class="w-full h-[500px] object-cover" />
               </div>
+              <span class="block text-3xl md:text-4xl font-extrabold text-white mb-1 counter" data-target="100000">0</span>
+              <p class="text-xs md:text-sm text-white/80 uppercase tracking-wide font-semibold">Subscriptions</p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Stats Section with Glassmorphism -->
-    <section class="py-12 md:py-16">
-      <div class="max-w-6xl mx-auto px-1 sm:px-1.5">
-        <div class="text-center mb-12">
-          <h2 class="fade-up text-3xl md:text-4xl font-bold text-white mb-4">Our Impact in Numbers</h2>
-          <p class="fade-up delay-100 text-white/90 max-w-2xl mx-auto">Connecting thousands across Telangana State</p>
-        </div>
-        
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          <div class="fade-up delay-100 stats-card-glass text-center group">
-            <div class="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-600/20 flex items-center justify-center backdrop-blur-sm border border-white/30 group-hover:scale-110 transition-transform duration-500">
-              <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-              </svg>
+            <!-- Stat 2 -->
+            <div class="text-center group">
+              <div class="flex items-center justify-center mb-2">
+                <svg class="w-8 h-8 text-blue-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                </svg>
+              </div>
+              <span class="block text-3xl md:text-4xl font-extrabold text-white mb-1 counter" data-target="500">0</span>
+              <p class="text-xs md:text-sm text-white/80 uppercase tracking-wide font-semibold">Colleges</p>
             </div>
-            <span class="block text-3xl md:text-4xl font-extrabold text-white mb-2 counter" data-target="100000">0</span>
-            <p class="text-xs md:text-sm text-white/80 uppercase tracking-wide font-semibold">Subscriptions</p>
-          </div>
-          
-          <div class="fade-up delay-200 stats-card-glass text-center group">
-            <div class="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-purple-500/20 to-purple-600/20 flex items-center justify-center backdrop-blur-sm border border-white/30 group-hover:scale-110 transition-transform duration-500">
-              <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-              </svg>
+
+            <!-- Stat 3 -->
+            <div class="text-center group">
+              <div class="flex items-center justify-center mb-2">
+                <svg class="w-8 h-8 text-purple-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <span class="block text-3xl md:text-4xl font-extrabold text-white mb-1 counter" data-target="200">0</span>
+              <p class="text-xs md:text-sm text-white/80 uppercase tracking-wide font-semibold">Companies</p>
             </div>
-            <span class="block text-3xl md:text-4xl font-extrabold text-white mb-2 counter" data-target="500">0</span>
-            <p class="text-xs md:text-sm text-white/80 uppercase tracking-wide font-semibold">Colleges</p>
-          </div>
-          
-          <div class="fade-up delay-300 stats-card-glass text-center group">
-            <div class="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-orange-500/20 to-orange-600/20 flex items-center justify-center backdrop-blur-sm border border-white/30 group-hover:scale-110 transition-transform duration-500">
-              <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
+
+            <!-- Stat 4 -->
+            <div class="text-center group">
+              <div class="flex items-center justify-center mb-2">
+                <svg class="w-8 h-8 text-green-400 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                </svg>
+              </div>
+              <span class="block text-3xl md:text-4xl font-extrabold text-white mb-1 counter" data-target="10000">0</span>
+              <p class="text-xs md:text-sm text-white/80 uppercase tracking-wide font-semibold">Placements</p>
             </div>
-            <span class="block text-3xl md:text-4xl font-extrabold text-white mb-2 counter" data-target="200">0</span>
-            <p class="text-xs md:text-sm text-white/80 uppercase tracking-wide font-semibold">Companies</p>
-          </div>
-          
-          <div class="fade-up delay-400 stats-card-glass text-center group">
-            <div class="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-600/20 flex items-center justify-center backdrop-blur-sm border border-white/30 group-hover:scale-110 transition-transform duration-500">
-              <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-              </svg>
-            </div>
-            <span class="block text-3xl md:text-4xl font-extrabold text-white mb-2 counter" data-target="10000">0</span>
-            <p class="text-xs md:text-sm text-white/80 uppercase tracking-wide font-semibold">Placements</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- President's Note Section -->
-    <section class="py-12 md:py-16">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
+    <section class="pt-24 pb-16 md:pb-20">
+      <div class="w-full px-0">
+        <div class="text-center mb-16 px-4">
           <h2 class="fade-up text-3xl md:text-4xl font-bold text-white mb-4">President's Welcome Note</h2>
           <p class="fade-up delay-100 text-white/95 max-w-2xl mx-auto">TTPOA – Global TPO & HR Summit 2025</p>
         </div>
 
-        <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl overflow-hidden shadow-2xl">
-          <div class="grid md:grid-cols-3 gap-8 p-8 md:p-12 items-center">
-            <!-- President Image -->
-            <div class="fade-left md:col-span-1">
-              <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/30 max-w-xs mx-auto animate-float">
-                <Image src={presidentImage} alt="Dr Jayaram - President" class="w-full h-auto object-cover" />
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-3xl overflow-hidden shadow-2xl p-8 md:p-12">
+          <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+            <!-- President Image - Framed & Smaller -->
+            <div class="fade-left md:col-span-4 lg:col-span-3">
+              <div class="relative group">
+                <!-- Decorative Frame -->
+                <div class="absolute -inset-1 bg-gradient-to-r from-orange-500 via-blue-500 to-orange-500 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
+                
+                <!-- Image Container -->
+                <div class="relative bg-gradient-to-br from-slate-900 to-slate-800 p-3 rounded-2xl">
+                  <div class="relative rounded-xl overflow-hidden shadow-2xl">
+                    <Image 
+                      src={presidentImage} 
+                      alt="Dr Jayaram - President" 
+                      class="w-full h-auto object-cover aspect-[3/4]"
+                    />
+                    <!-- Elegant Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                  </div>
+                  
+                  <!-- Corner Accents -->
+                  <div class="absolute top-1 left-1 w-6 h-6 border-t-2 border-l-2 border-orange-400 rounded-tl-xl"></div>
+                  <div class="absolute top-1 right-1 w-6 h-6 border-t-2 border-r-2 border-orange-400 rounded-tr-xl"></div>
+                  <div class="absolute bottom-1 left-1 w-6 h-6 border-b-2 border-l-2 border-blue-400 rounded-bl-xl"></div>
+                  <div class="absolute bottom-1 right-1 w-6 h-6 border-b-2 border-r-2 border-blue-400 rounded-br-xl"></div>
+                </div>
               </div>
             </div>
 
             <!-- President's Message -->
-            <div class="fade-right md:col-span-2 flex flex-col justify-center">
+            <div class="fade-right md:col-span-8 lg:col-span-9 flex flex-col justify-center">
               <div class="mb-6">
-                <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">Dr Jayaram</h3>
-                <p class="text-orange-400 font-semibold text-base mb-1">Vice President</p>
-                <p class="text-orange-300 font-medium text-sm">All India TPO Association</p>
-                <p class="text-orange-400 font-semibold text-base mt-1">&</p>
-                <p class="text-orange-400 font-semibold text-base">President</p>
-                <p class="text-orange-300 font-medium text-sm">Telangana TPO Association</p>
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-3">
+                  Dr Jayaram
+                </h3>
+                <div class="flex flex-col gap-1">
+                  <p class="text-orange-400 font-semibold text-sm md:text-base">Vice President, All India TPO Association</p>
+                  <p class="text-blue-400 font-semibold text-sm md:text-base">President, Telangana TPO Association</p>
+                </div>
               </div>
               
-              <div class="space-y-4 text-white/90 leading-relaxed text-sm md:text-base">
+              <div class="text-white/90 leading-relaxed text-base md:text-lg mb-6 space-y-3">
                 <p>
-                  It gives me immense pleasure to welcome you all to the TTPOA – Global TPO & HR Summit 2025 being held at Hyderabad.
-                </p>
-                <p>
-                  The 1st Global TPO & HR Summit will be an annual landmark summit involving academia and the industry to collaborate in advancing the latest technologies and understanding the skills for the next generation.
-                </p>
-                <p>
-                  The theme of the Global TPO & HR Summit is <span class="font-semibold text-orange-400">Talent – Trade – Tourism</span>, in exploring the opportunity and strengthening the workforce as per the requirements of the industry.
-                </p>
-                <p>
-                  I extend a warm welcome to all the Training and Placement Officers across India, industry leaders, academic partners, training partners, overseas partners and global partners. I feel your insights and contributions will help to shape pathways for inclusive, skillful and future-ready leaders.
+                  It gives me immense pleasure to welcome you all to the TTPOA – Global TPO & HR Summit 2025 being held at Hyderabad. The 1st Global TPO & HR Summit will be an annual landmark summit involving academia and the industry to collaborate in advancing the latest technologies and understanding the skills for the next generation. The theme of the Global TPO & HR Summit is <span class="font-semibold text-orange-400">Talent – Trade – Tourism</span>...
                 </p>
               </div>
+              
+              <a href={`${import.meta.env.BASE_URL}/presidents-note/`} class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-blue-500 hover:from-orange-600 hover:to-blue-600 rounded-xl transition-all duration-300 font-bold text-white shadow-lg hover:shadow-xl hover:scale-105 w-fit group">
+                Read Full Message
+                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </a>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>
@@ -183,12 +202,6 @@ import presidentImage from '../assets/images/President_Image.jpeg';
 
           <!-- Content -->
           <div class="fade-right">
-            <div class="inline-flex items-center bg-gradient-to-r from-blue-500/20 to-orange-500/20 backdrop-blur-md px-6 py-3 rounded-full text-sm font-bold mb-6 text-white border border-white/30 shadow-lg">
-              <svg class="w-4 h-4 mr-2 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-              </svg>
-              Upcoming Programs
-            </div>
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">Our <span class="gradient-text">Achievements</span></h2>
             <p class="text-white/95 mb-8 leading-relaxed text-base md:text-lg">
               Top instructors from around the world teaching and guiding students towards successful careers. We provide comprehensive placement support and industry connections.
@@ -224,7 +237,7 @@ import presidentImage from '../assets/images/President_Image.jpeg';
       </div>
     </section>
 
-    <!-- Recent Activities Section -->
+    <!-- Latest Events & Updates Section -->
     <section class="py-20 relative overflow-hidden">
       <!-- Background Effects -->
       <div class="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-white/60 to-orange-50/80 backdrop-blur-sm"></div>
@@ -232,28 +245,23 @@ import presidentImage from '../assets/images/President_Image.jpeg';
       <div class="absolute bottom-0 right-0 w-96 h-96 bg-orange-400/10 rounded-full blur-3xl"></div>
       
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <div class="inline-flex items-center bg-gradient-to-r from-blue-500/20 to-orange-500/20 backdrop-blur-md px-6 py-3 rounded-full text-sm font-bold mb-6 border border-white/30 shadow-lg">
-            <svg class="w-5 h-5 mr-2 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-            </svg>
-            Recent Activities
-          </div>
+        <div class="text-center mb-16">
           <h2 class="text-4xl md:text-5xl font-bold mb-4">
             <span class="bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent">Latest Events & Updates</span>
           </h2>
           <p class="text-gray-700 text-lg max-w-2xl mx-auto">
-            Stay updated with the latest happenings and achievements at TTPOA
+            Stay updated with our latest achievements and upcoming initiatives
           </p>
         </div>
         
-        <!-- Activity Cards Grid -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Activity Card 1 -->
-          <div class="fade-up delay-100 bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:scale-105 border border-gray-100">
-            <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-600 relative overflow-hidden">
-              <div class="absolute inset-0 flex items-center justify-center">
-                <svg class="w-20 h-20 text-white/20" fill="currentColor" viewBox="0 0 20 20">
+        <!-- Event Cards Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Event Card 1 -->
+          <div class="group event-card bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-orange-300">
+            <div class="relative h-56 bg-gradient-to-br from-blue-500 to-blue-600 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div class="absolute inset-0 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
+                <svg class="w-24 h-24 text-white/30" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
                   <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/>
                 </svg>
@@ -264,26 +272,27 @@ import presidentImage from '../assets/images/President_Image.jpeg';
                 <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
                 </svg>
-                February 5, 2026
+                February 15, 2026
               </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Annual Placement Summit 2026</h3>
-              <p class="text-gray-600 mb-4 leading-relaxed">
-                Successfully conducted the Annual Placement Summit with participation from 200+ colleges and 150+ companies across Telangana.
+              <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">Global TPO & HR Summit 2025</h3>
+              <p class="text-gray-600 mb-4 leading-relaxed line-clamp-3">
+                Join us for the landmark annual summit bringing together academia and industry leaders to discuss emerging technologies and future workforce skills.
               </p>
-              <div class="flex items-center text-blue-600 font-semibold text-sm">
-                <span>Read More</span>
-                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="flex items-center text-blue-600 font-semibold text-sm group-hover:gap-3 gap-2 transition-all">
+                <span>Learn More</span>
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                 </svg>
               </div>
             </div>
           </div>
 
-          <!-- Activity Card 2 -->
-          <div class="fade-up delay-200 bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:scale-105 border border-gray-100">
-            <div class="h-48 bg-gradient-to-br from-purple-500 to-purple-600 relative overflow-hidden">
-              <div class="absolute inset-0 flex items-center justify-center">
-                <svg class="w-20 h-20 text-white/20" fill="currentColor" viewBox="0 0 20 20">
+          <!-- Event Card 2 -->
+          <div class="group event-card bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-purple-300">
+            <div class="relative h-56 bg-gradient-to-br from-purple-500 to-purple-600 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div class="absolute inset-0 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
+                <svg class="w-24 h-24 text-white/30" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/>
                   <path d="M5.868 10.196a1 1 0 00-.788 1.838l4.73 2.034a1 1 0 00.788 0l7-3a1 1 0 00-.788-1.838l-6.606 2.832-4.336-1.866z"/>
                 </svg>
@@ -296,24 +305,25 @@ import presidentImage from '../assets/images/President_Image.jpeg';
                 </svg>
                 January 28, 2026
               </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Skill Development Workshop</h3>
-              <p class="text-gray-600 mb-4 leading-relaxed">
-                Organized a comprehensive skill development workshop focusing on AI, Machine Learning, and Data Science for students across member institutions.
+              <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">AI & ML Workshop Series</h3>
+              <p class="text-gray-600 mb-4 leading-relaxed line-clamp-3">
+                Successfully conducted comprehensive skill development workshops focusing on Artificial Intelligence, Machine Learning, and Data Science for students across member institutions.
               </p>
-              <div class="flex items-center text-purple-600 font-semibold text-sm">
-                <span>Read More</span>
-                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="flex items-center text-purple-600 font-semibold text-sm group-hover:gap-3 gap-2 transition-all">
+                <span>View Details</span>
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                 </svg>
               </div>
             </div>
           </div>
 
-          <!-- Activity Card 3 -->
-          <div class="fade-up delay-300 bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:scale-105 border border-gray-100">
-            <div class="h-48 bg-gradient-to-br from-orange-500 to-orange-600 relative overflow-hidden">
-              <div class="absolute inset-0 flex items-center justify-center">
-                <svg class="w-20 h-20 text-white/20" fill="currentColor" viewBox="0 0 20 20">
+          <!-- Event Card 3 -->
+          <div class="group event-card bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-orange-300">
+            <div class="relative h-56 bg-gradient-to-br from-orange-500 to-orange-600 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div class="absolute inset-0 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
+                <svg class="w-24 h-24 text-white/30" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
                 </svg>
               </div>
@@ -323,102 +333,15 @@ import presidentImage from '../assets/images/President_Image.jpeg';
                 <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
                 </svg>
-                January 15, 2026
+                February 1, 2026
               </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Industry Partnership Initiative</h3>
-              <p class="text-gray-600 mb-4 leading-relaxed">
-                Launched new partnerships with 25+ leading tech companies to enhance placement opportunities and provide industry exposure to students.
+              <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors">Industry Partnership Program</h3>
+              <p class="text-gray-600 mb-4 leading-relaxed line-clamp-3">
+                Launched new partnerships with 30+ leading tech companies to enhance placement opportunities and provide hands-on industry exposure to students across Telangana.
               </p>
-              <div class="flex items-center text-orange-600 font-semibold text-sm">
-                <span>Read More</span>
-                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <!-- Activity Card 4 -->
-          <div class="fade-up delay-100 bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:scale-105 border border-gray-100">
-            <div class="h-48 bg-gradient-to-br from-green-500 to-green-600 relative overflow-hidden">
-              <div class="absolute inset-0 flex items-center justify-center">
-                <svg class="w-20 h-20 text-white/20" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center text-sm text-gray-500 mb-3">
-                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
-                </svg>
-                December 20, 2025
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">TPO Training Program</h3>
-              <p class="text-gray-600 mb-4 leading-relaxed">
-                Conducted specialized training program for TPOs focusing on modern placement strategies, digital recruitment tools, and best practices.
-              </p>
-              <div class="flex items-center text-green-600 font-semibold text-sm">
-                <span>Read More</span>
-                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <!-- Activity Card 5 -->
-          <div class="fade-up delay-200 bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:scale-105 border border-gray-100">
-            <div class="h-48 bg-gradient-to-br from-pink-500 to-pink-600 relative overflow-hidden">
-              <div class="absolute inset-0 flex items-center justify-center">
-                <svg class="w-20 h-20 text-white/20" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"/>
-                </svg>
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center text-sm text-gray-500 mb-3">
-                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
-                </svg>
-                November 30, 2025
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Virtual Job Fair 2025</h3>
-              <p class="text-gray-600 mb-4 leading-relaxed">
-                Successfully hosted a virtual job fair connecting 10,000+ students with 100+ companies, resulting in 2,500+ placement offers.
-              </p>
-              <div class="flex items-center text-pink-600 font-semibold text-sm">
-                <span>Read More</span>
-                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <!-- Activity Card 6 -->
-          <div class="fade-up delay-300 bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:scale-105 border border-gray-100">
-            <div class="h-48 bg-gradient-to-br from-indigo-500 to-indigo-600 relative overflow-hidden">
-              <div class="absolute inset-0 flex items-center justify-center">
-                <svg class="w-20 h-20 text-white/20" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
-                </svg>
-              </div>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center text-sm text-gray-500 mb-3">
-                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
-                </svg>
-                November 10, 2025
-              </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Academic Excellence Awards</h3>
-              <p class="text-gray-600 mb-4 leading-relaxed">
-                Recognized outstanding TPOs and member institutions for their exceptional contribution to student placements and career development.
-              </p>
-              <div class="flex items-center text-indigo-600 font-semibold text-sm">
-                <span>Read More</span>
-                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="flex items-center text-orange-600 font-semibold text-sm group-hover:gap-3 gap-2 transition-all">
+                <span>Explore More</span>
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                 </svg>
               </div>
@@ -427,7 +350,123 @@ import presidentImage from '../assets/images/President_Image.jpeg';
         </div>
       </div>
     </section>
+
+    <!-- Newsletter Section -->
+    <section class="relative py-20 md:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 md:p-12 shadow-2xl">
+        <div class="text-center mb-10">
+          <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+            Stay Updated on Events & Resources
+          </h2>
+          <p class="text-white/95 text-xl md:text-2xl font-light max-w-3xl mx-auto mb-4">
+            Get exclusive updates, placement opportunities & career insights
+          </p>
+          <p class="text-white/80 text-sm md:text-base">
+            🎓 <span class="font-semibold">1 Lakh+</span> Students Already Subscribed Across Telangana
+          </p>
+        </div>
+        
+        <form class="max-w-2xl mx-auto">
+          <div class="flex flex-col sm:flex-row gap-4 bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/20 shadow-2xl">
+            <input 
+              type="email" 
+              placeholder="Enter your email address" 
+              class="flex-1 px-6 py-4 rounded-xl bg-white text-gray-900 font-medium focus:outline-none focus:ring-4 focus:ring-white/50 placeholder:text-gray-500 shadow-lg text-base"
+              required
+            />
+            <button 
+              type="submit" 
+              class="group px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 rounded-xl transition-all duration-300 font-bold text-white shadow-lg hover:shadow-2xl hover:scale-105 whitespace-nowrap flex items-center justify-center gap-2"
+            >
+              Subscribe Free
+              <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+            </button>
+          </div>
+        </form>
+        
+        <div class="mt-8 flex items-center justify-center gap-8 text-white/90 text-sm">
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-300" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>100% Free</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-300" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>No Spam</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-green-300" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>Unsubscribe Anytime</span>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <Footer />
+
+  <script>
+    // Scroll reveal animation for stats container
+    document.addEventListener('DOMContentLoaded', () => {
+      const statsContainer = document.querySelector('.stats-glass-container');
+      
+      const toggleStatsVisibility = () => {
+        if (!statsContainer) return;
+        
+        const containerPosition = statsContainer.getBoundingClientRect().top;
+        const containerBottom = statsContainer.getBoundingClientRect().bottom;
+        const screenPosition = window.innerHeight * 0.75;
+        const scrollY = window.scrollY || window.pageYOffset;
+        
+        // Show when scrolling down and container enters viewport
+        // Hide when at top of page or when container is completely out of view
+        if (scrollY < 100) {
+          // At the very top of page - hide
+          statsContainer.classList.remove('revealed');
+        } else if (containerPosition < screenPosition && containerBottom > 0) {
+          // Container is in view - show
+          statsContainer.classList.add('revealed');
+        } else if (containerBottom < 0) {
+          // Container is above viewport - hide
+          statsContainer.classList.remove('revealed');
+        }
+      };
+      
+      // Check on scroll
+      window.addEventListener('scroll', toggleStatsVisibility);
+      
+      // Initial check
+      toggleStatsVisibility();
+
+      // Event Cards Animation on Scroll
+      const eventCards = document.querySelectorAll('.event-card');
+      
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      };
+      
+      const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+            cardObserver.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      eventCards.forEach(card => {
+        cardObserver.observe(card);
+      });
+    });
+  </script>
 </Layout>
