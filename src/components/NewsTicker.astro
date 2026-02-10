@@ -21,12 +21,12 @@ const news = [
     <div class="ticker-content flex-1 overflow-hidden py-3">
       <div class="ticker-scroll flex gap-12 animate-ticker">
         {news.map((item) => (
-          <a href={item.link} class="text-sm font-medium whitespace-nowrap flex items-center gap-2 transition-colors duration-300" style="color: var(--color-ticker-text);">
+          <a href={item.link} class="ticker-link text-sm font-medium whitespace-nowrap flex items-center gap-2 transition-colors duration-300" style="color: var(--color-ticker-text);">
             {item.text}
           </a>
         ))}
         {news.map((item) => (
-          <a href={item.link} class="text-sm font-medium whitespace-nowrap flex items-center gap-2 transition-colors duration-300" style="color: var(--color-ticker-text);">
+          <a href={item.link} class="ticker-link text-sm font-medium whitespace-nowrap flex items-center gap-2 transition-colors duration-300" style="color: var(--color-ticker-text);">
             {item.text}
           </a>
         ))}
@@ -61,8 +61,8 @@ const news = [
     animation-play-state: paused;
   }
 
-  .ticker-scroll a:hover {
-    color: var(--color-ticker-text-hover);
+  .ticker-link:hover {
+    color: #f97316 !important;
   }
 
   @keyframes scroll-left {
