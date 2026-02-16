@@ -55,13 +55,97 @@ const events = [
       <div class="text-center fade-up">
         <div class="inline-block mb-6">
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400 bg-clip-text text-transparent">
-            Event Timeline
+            Events
           </h1>
           <div class="h-1 w-full bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 rounded-full"></div>
         </div>
         <p class="text-xl text-muted max-w-3xl mx-auto leading-relaxed">
-          Explore our journey through memorable events, conferences, and workshops that shape the future of placements in Telangana
+          Discover upcoming events and explore our journey through memorable conferences and workshops
         </p>
+      </div>
+    </div>
+
+    <!-- Upcoming Events Carousel -->
+    <section class="mb-20 relative z-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8">
+          <h2 class="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            Upcoming Events
+          </h2>
+          <div class="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Event Card 1 -->
+          <div class="fade-up delay-100 glass-card p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 group border border-white/10">
+            <div class="flex items-start justify-between mb-4">
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+              </div>
+              <span class="text-xs font-bold text-orange-400 bg-orange-400/10 px-3 py-1 rounded-full">Coming Soon</span>
+            </div>
+            <h3 class="text-xl font-bold text-heading mb-2 group-hover:text-blue-400 transition-colors">TPO Network Meet 2025</h3>
+            <p class="text-body text-sm mb-4 leading-relaxed">Quarterly networking event for TPOs across Telangana to share best practices and opportunities.</p>
+            <div class="flex items-center text-muted text-sm mb-2">
+              <svg class="w-4 h-4 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              <span class="font-medium">TBA</span>
+            </div>
+          </div>
+
+          <!-- Event Card 2 -->
+          <div class="fade-up delay-200 glass-card p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 group border border-white/10">
+            <div class="flex items-start justify-between mb-4">
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                </svg>
+              </div>
+              <span class="text-xs font-bold text-orange-400 bg-orange-400/10 px-3 py-1 rounded-full">Coming Soon</span>
+            </div>
+            <h3 class="text-xl font-bold text-heading mb-2 group-hover:text-purple-400 transition-colors">Skill Development Workshop</h3>
+            <p class="text-body text-sm mb-4 leading-relaxed">Industry-focused training sessions to enhance student employability and career readiness.</p>
+            <div class="flex items-center text-muted text-sm mb-2">
+              <svg class="w-4 h-4 mr-2 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              <span class="font-medium">TBA</span>
+            </div>
+          </div>
+
+          <!-- Event Card 3 -->
+          <div class="fade-up delay-300 glass-card p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 group border border-white/10">
+            <div class="flex items-start justify-between mb-4">
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-lg">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <span class="text-xs font-bold text-orange-400 bg-orange-400/10 px-3 py-1 rounded-full">Coming Soon</span>
+            </div>
+            <h3 class="text-xl font-bold text-heading mb-2 group-hover:text-orange-400 transition-colors">Industry Connect Summit</h3>
+            <p class="text-body text-sm mb-4 leading-relaxed">Bridge the gap between academia and industry with direct interactions and partnership opportunities.</p>
+            <div class="flex items-center text-muted text-sm mb-2">
+              <svg class="w-4 h-4 mr-2 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              <span class="font-medium">TBA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Events -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative z-10">
+      <div class="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent">
+          Recent Events
+        </h2>
+        <div class="h-1 w-24 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full"></div>
       </div>
     </div>
 

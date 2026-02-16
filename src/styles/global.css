@@ -25,217 +25,8 @@
     padding: 0;
   }
 
-  /* CSS Custom Properties for Theme System */
+  /* CSS Custom Properties - Dark Theme Only */
   :root {
-    /* Light Theme Colors (Default) - Based on LightTheme Reference */
-    --color-text-primary: #1e293b;
-    --color-text-secondary: #374151;
-    --color-text-muted: #64748b;
-    
-    /* Navigation */
-    --color-nav-bg: rgba(191, 219, 254, 0.7);
-    --color-nav-border: rgba(59, 130, 246, 0.4);
-    --color-nav-shadow: rgba(59, 130, 246, 0.15);
-    --color-nav-text: #1f2937;
-    --color-nav-text-secondary: #1f2937;
-    --color-nav-text-muted: #374151;
-    --color-nav-active-bg: rgba(59, 130, 246, 0.15);
-    --color-nav-hover-bg: rgba(59, 130, 246, 0.08);
-    
-    /* Cards and Glass Effects */
-    --color-card-bg: white;
-    --color-glass-card-bg: rgba(255, 255, 255, 0.95);
-    --color-glass-card-border: rgba(147, 197, 253, 0.3);
-    
-    /* Stats and Partners */
-    --color-stats-glass-bg-start: rgba(191, 219, 254, 0.6);
-    --color-stats-glass-bg-end: rgba(147, 197, 253, 0.5);
-    --color-stats-glass-border: rgba(59, 130, 246, 0.4);
-    --color-stats-glass-shadow: rgba(59, 130, 246, 0.2);
-    --color-stats-glass-hover-border: rgba(147, 197, 253, 0.8);
-    --color-stats-glass-hover-bg-start: rgba(147, 197, 253, 0.5);
-    --color-stats-glass-hover-bg-end: rgba(191, 219, 254, 0.45);
-    --color-stats-glass-hover-shadow: rgba(59, 130, 246, 0.35);
-    --color-stats-glass-hover-glow: rgba(147, 197, 253, 0.25);
-    
-    /* Stats Text Colors for Light Theme */
-    --color-stats-number: white;
-    --color-stats-label: #1f2937;
-    
-    --color-stats-card-border: rgba(59, 130, 246, 0.25);
-    --color-stats-card-shadow: rgba(59, 130, 246, 0.15);
-    
-    --color-partner-card-gradient: linear-gradient(90deg, #e3f0fc, #f97316);
-    --color-partner-card-shadow: rgba(227, 240, 252, 0.35);
-    --color-partner-logo-bg-start: #f5f9fd;
-    --color-partner-logo-bg-end: #e3f0fc;
-    --color-partner-title: #6b9bd1;
-    --color-partner-count-start: #e3f0fc;
-    --color-partner-label: #64748b;
-    
-    /* Buttons */
-    --color-btn-outline-text: #1f2937;
-    --color-btn-outline-border: rgba(31, 41, 55, 0.4);
-    --color-btn-outline-hover-bg: rgba(31, 41, 55, 0.1);
-    --color-btn-outline-hover-border: #1f2937;
-    --color-btn-outline-hover-shadow: rgba(31, 41, 55, 0.15);
-    
-    --color-btn-secondary-bg-start: #e3f0fc;
-    --color-btn-secondary-bg-end: #c7e0f7;
-    --color-btn-secondary-text: #1e293b;
-    --color-btn-secondary-shadow: rgba(227, 240, 252, 0.4);
-    --color-btn-secondary-hover-start: #c7e0f7;
-    --color-btn-secondary-hover-end: #abd1f2;
-    --color-btn-secondary-hover-shadow: rgba(227, 240, 252, 0.5);
-    
-    /* Footer */
-    --color-footer-bg-start: #e3f0fc;
-    --color-footer-bg-mid: #d4e8fa;
-    --color-footer-bg-end: #c7e0f7;
-    --color-footer-heading: #1f2937;
-    --color-footer-text: rgba(55, 65, 81, 0.9);
-    --color-footer-text-light: rgba(55, 65, 81, 0.8);
-    --color-footer-text-hover: #1f2937;
-    --color-footer-input-bg: white;
-    --color-footer-input-text: #374151;
-    --color-footer-bottom-bg: #c7e0f7;
-    --color-footer-bottom-border: rgba(199, 224, 247, 0.6);
-    
-    /* Social Icons */
-    --color-social-icon-bg: rgba(107, 114, 128, 0.15);
-    --color-social-icon-border: rgba(107, 114, 128, 0.3);
-    --color-social-icon-text: #374151;
-    
-    /* Forms */
-    --color-form-border: #e2e8f0;
-    --color-form-focus: #e3f0fc;
-    --color-form-focus-shadow: rgba(227, 240, 252, 0.3);
-    --color-form-bg: white;
-    --color-form-text: #1e293b;
-    --color-form-placeholder: #94a3b8;
-    
-    /* Labels and Secondary Text */
-    --color-label-text: #64748b;
-    
-    /* Service Cards */
-    --color-service-card-gradient-end: #e3f0fc;
-    
-    /* News Ticker */
-    --color-ticker-bg: linear-gradient(to right, #e3f0fc, #c7e0f7, #abd1f2);
-    --color-ticker-border: #f97316;
-    --color-ticker-label-bg: #f97316;
-    --color-ticker-label-text: white;
-    --color-ticker-text: #1f2937;
-    --color-ticker-text-hover: #f97316;
-  }
-
-  /* Dark Theme Colors - Applied when data-theme="dark" or system prefers dark */
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --color-text-primary: #e5e7eb;
-      --color-text-secondary: rgba(255, 255, 255, 0.8);
-      --color-text-muted: rgba(255, 255, 255, 0.6);
-      
-      /* Navigation */
-      --color-nav-bg: rgba(30, 58, 138, 0.85);
-      --color-nav-border: rgba(59, 130, 246, 0.3);
-      --color-nav-shadow: rgba(0, 0, 0, 0.25);
-      --color-nav-text: white;
-      --color-nav-text-secondary: rgba(255, 255, 255, 0.9);
-      --color-nav-text-muted: rgba(255, 255, 255, 0.6);
-      --color-nav-active-bg: rgba(255, 255, 255, 0.2);
-      --color-nav-hover-bg: rgba(255, 255, 255, 0.1);
-      
-      /* Cards and Glass Effects */
-      --color-card-bg: rgba(30, 58, 138, 0.5);
-      --color-glass-card-bg: rgba(30, 58, 138, 0.6);
-      --color-glass-card-border: rgba(59, 130, 246, 0.3);
-      
-      /* Stats and Partners */
-      --color-stats-glass-bg-start: rgba(255, 255, 255, 0.1);
-      --color-stats-glass-bg-end: rgba(255, 255, 255, 0.1);
-      --color-stats-glass-border: rgba(255, 255, 255, 0.2);
-      --color-stats-glass-shadow: rgba(0, 0, 0, 0.15);
-      --color-stats-glass-hover-border: rgba(255, 255, 255, 0.5);
-      --color-stats-glass-hover-bg-start: rgba(255, 255, 255, 0.15);
-      --color-stats-glass-hover-bg-end: rgba(255, 255, 255, 0.15);
-      --color-stats-glass-hover-shadow: rgba(59, 130, 246, 0.3);
-      --color-stats-glass-hover-glow: rgba(249, 115, 22, 0.2);
-      
-      --color-stats-card-border: rgba(59, 130, 246, 0.2);
-      --color-stats-card-shadow: rgba(30, 58, 138, 0.15);
-      
-      /* Stats Text Colors for Dark Theme */
-      --color-stats-number: white;
-      --color-stats-label: rgba(255, 255, 255, 0.8);
-      
-      --color-partner-card-gradient: linear-gradient(90deg, #3b82f6, #f97316);
-      --color-partner-card-shadow: rgba(59, 130, 246, 0.25);
-      --color-partner-logo-bg-start: #eff6ff;
-      --color-partner-logo-bg-end: #dbeafe;
-      --color-partner-title: #1e40af;
-      --color-partner-count-start: #3b82f6;
-      --color-partner-label: rgba(255, 255, 255, 0.7);
-      
-      /* Buttons */
-      --color-btn-outline-text: white;
-      --color-btn-outline-border: rgba(255, 255, 255, 0.5);
-      --color-btn-outline-hover-bg: rgba(255, 255, 255, 0.15);
-      --color-btn-outline-hover-border: white;
-      --color-btn-outline-hover-shadow: rgba(255, 255, 255, 0.2);
-      
-      --color-btn-secondary-bg-start: #3b82f6;
-      --color-btn-secondary-bg-end: #2563eb;
-      --color-btn-secondary-text: white;
-      --color-btn-secondary-shadow: rgba(59, 130, 246, 0.3);
-      --color-btn-secondary-hover-start: #2563eb;
-      --color-btn-secondary-hover-end: #1d4ed8;
-      --color-btn-secondary-hover-shadow: rgba(59, 130, 246, 0.4);
-      
-      /* Footer */
-      --color-footer-bg-start: #1e3a8a;
-      --color-footer-bg-mid: #1e40af;
-      --color-footer-bg-end: #3b82f6;
-      --color-footer-heading: white;
-      --color-footer-text: rgba(191, 219, 254, 1);
-      --color-footer-text-light: rgba(191, 219, 254, 0.8);
-      --color-footer-text-hover: white;
-      --color-footer-input-bg: white;
-      --color-footer-input-text: #374151;
-      --color-footer-bottom-bg: #1e40af;
-      --color-footer-bottom-border: rgba(30, 58, 138, 0.5);
-      
-      /* Social Icons */
-      --color-social-icon-bg: rgba(255, 255, 255, 0.1);
-      --color-social-icon-border: rgba(255, 255, 255, 0.2);
-      --color-social-icon-text: white;
-      
-      /* Forms */
-      --color-form-border: rgba(255, 255, 255, 0.2);
-      --color-form-focus: rgba(59, 130, 246, 0.5);
-      --color-form-focus-shadow: rgba(59, 130, 246, 0.3);
-      --color-form-bg: rgba(30, 58, 138, 0.5);
-      --color-form-text: white;
-      --color-form-placeholder: rgba(255, 255, 255, 0.5);
-      
-      /* Labels and Secondary Text */
-      --color-label-text: rgba(255, 255, 255, 0.7);
-      
-      /* Service Cards */
-      --color-service-card-gradient-end: #3b82f6;
-      
-      /* News Ticker */
-      --color-ticker-bg: linear-gradient(to right, #1e40af, #1e3a8a, #3b82f6);
-      --color-ticker-border: #f97316;
-      --color-ticker-label-bg: #f97316;
-      --color-ticker-label-text: white;
-      --color-ticker-text: white;
-      --color-ticker-text-hover: #fed7aa;
-    }
-  }
-
-  /* Manual Dark Theme Override */
-  :root[data-theme="dark"] {
     --color-text-primary: #e5e7eb;
     --color-text-secondary: rgba(255, 255, 255, 0.8);
     --color-text-muted: rgba(255, 255, 255, 0.6);
@@ -269,7 +60,6 @@
     --color-stats-card-border: rgba(59, 130, 246, 0.2);
     --color-stats-card-shadow: rgba(30, 58, 138, 0.15);
     
-    /* Stats Text Colors for Dark Theme */
     --color-stats-number: white;
     --color-stats-label: rgba(255, 255, 255, 0.8);
     
@@ -336,7 +126,6 @@
     --color-ticker-text: white;
     --color-ticker-text-hover: #fed7aa;
   }
-}
 
 @keyframes gradientFlow {
   0%, 100% {
@@ -905,15 +694,6 @@
   color: white;
 }
 
-/* Remove old glassmorphism that's too much */
-.btn-primary,
-.btn-secondary,
-.btn-outline,
-.stats-card,
-.partner-card,
-.service-card {
-  /* Professional styles already defined above */
-}
 
 /* Section Styles */
 .section-padding {
@@ -1158,4 +938,5 @@ input, textarea, select {
 
 .footer-bottom-border {
   border-color: var(--color-footer-bottom-border);
+}
 }

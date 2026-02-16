@@ -10,11 +10,14 @@ const baseUrl = import.meta.env.BASE_URL;
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
       <!-- Brand -->
       <div class="lg:col-span-1">
-        <div class="flex items-center space-x-3 mb-6">
-          <div class="w-12 h-12 rounded-xl overflow-hidden border-2 border-orange-400">
+        <div class="flex flex-col items-start mb-6">
+          <div class="w-16 h-16 rounded-xl overflow-hidden border-2 border-orange-400 shadow-lg mb-3">
             <Image src={logo} alt="TTPOA" class="w-full h-full object-cover" />
           </div>
-          <span class="text-xl font-bold footer-heading">TTPOA</span>
+          <div>
+            <p class="text-base font-bold footer-heading leading-tight">Telangana Training & Placement</p>
+            <p class="text-base font-bold footer-heading leading-tight">Officers Association</p>
+          </div>
         </div>
         <p class="footer-text mb-6 leading-relaxed text-sm">
           We are always in search of Industry Academia Collaboration. Connecting students, TPOs, and organizations for successful career pathways.
@@ -101,65 +104,4 @@ const baseUrl = import.meta.env.BASE_URL;
       </div>
     </div>
   </div>
-
-  <!-- Theme Toggle Button (Dev Only) -->
-  <button 
-    id="theme-toggle" 
-    class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 border-2"
-    style="background: var(--color-glass-card-bg); border-color: var(--color-glass-card-border);"
-    aria-label="Toggle theme"
-  >
-    <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" style="color: var(--color-text-primary);" fill="currentColor" viewBox="0 0 20 20">
-      <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
-    </svg>
-    <svg id="theme-toggle-dark-icon" class="w-6 h-6 hidden" style="color: var(--color-text-primary);" fill="currentColor" viewBox="0 0 20 20">
-      <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-    </svg>
-  </button>
 </footer>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const lightIcon = document.getElementById('theme-toggle-light-icon');
-    const darkIcon = document.getElementById('theme-toggle-dark-icon');
-    const htmlElement = document.documentElement;
-
-    // Check for saved theme preference or default to system preference
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    // Set initial theme
-    if (savedTheme) {
-      htmlElement.setAttribute('data-theme', savedTheme);
-    } else if (systemPrefersDark) {
-      htmlElement.setAttribute('data-theme', 'dark');
-    } else {
-      htmlElement.setAttribute('data-theme', 'light');
-    }
-
-    // Update icons based on current theme
-    function updateIcons() {
-      const currentTheme = htmlElement.getAttribute('data-theme');
-      if (currentTheme === 'dark') {
-        lightIcon?.classList.remove('hidden');
-        darkIcon?.classList.add('hidden');
-      } else {
-        lightIcon?.classList.add('hidden');
-        darkIcon?.classList.remove('hidden');
-      }
-    }
-
-    updateIcons();
-
-    // Toggle theme on button click
-    themeToggleBtn?.addEventListener('click', () => {
-      const currentTheme = htmlElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      
-      htmlElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      updateIcons();
-    });
-  });
-</script>

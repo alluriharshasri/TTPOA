@@ -100,43 +100,10 @@
     height: 100%;
     z-index: -1;
     overflow: hidden;
-    background: linear-gradient(135deg, #f5f9fd 0%, #e3f0fc 50%, #c7e0f7 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #1e40af 100%);
     transition: background 0.5s ease;
   }
 
-  /* Dark theme background */
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .antigravity-bg {
-      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #1e40af 100%);
-    }
-    
-    :root:not([data-theme="light"]) .particle {
-      background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(249,115,22,0.4) 50%, transparent 100%);
-    }
-    
-    :root:not([data-theme="light"]) .antigravity-bg::before {
-      background-image: 
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    }
-  }
-
-  /* Manual dark theme override */
-  :root[data-theme="dark"] .antigravity-bg {
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #1e40af 100%);
-  }
-
-  :root[data-theme="dark"] .particle {
-    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(249,115,22,0.4) 50%, transparent 100%);
-  }
-
-  :root[data-theme="dark"] .antigravity-bg::before {
-    background-image: 
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  }
-
-  /* Light theme particles and grid */
   .antigravity-bg::before {
     content: '';
     position: absolute;
@@ -145,8 +112,8 @@
     width: 100%;
     height: 100%;
     background-image: 
-      linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
     background-size: 50px 50px;
     animation: grid-move 20s linear infinite;
   }
@@ -159,7 +126,7 @@
 
   .particle {
     position: absolute;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(147, 197, 253, 0.3) 50%, transparent 100%);
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(249,115,22,0.4) 50%, transparent 100%);
     border-radius: 50%;
     pointer-events: none;
     opacity: 0;
@@ -295,16 +262,6 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    opacity: 0.25;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .gradient-orbs {
-      opacity: 0.3;
-    }
-  }
-
-  :root[data-theme="dark"] .gradient-orbs {
     opacity: 0.3;
   }
 

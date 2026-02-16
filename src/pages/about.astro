@@ -6,6 +6,9 @@ import Footer from '../components/Footer.astro';
 import { Image } from 'astro:assets';
 import image1 from '../assets/images/Event-1_1.jpeg';
 import image2 from '../assets/images/Event-2_1.jpeg';
+import presidentImage from '../assets/images/President_Image.jpeg';
+
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Layout title="About Us - TTPOA">
@@ -27,8 +30,120 @@ import image2 from '../assets/images/Event-2_1.jpeg';
       </div>
     </section>
 
+    <!-- Vision & Mission Section -->
+    <section id="vision-mission" class="section-padding bg-gradient-to-b from-slate-50/10 to-transparent">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400 bg-clip-text text-transparent">
+            Our Vision & Mission
+          </h2>
+          <div class="h-1 w-24 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full mx-auto"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
+          <!-- Vision Card -->
+          <div class="fade-up delay-100 bg-gradient-to-br from-blue-500/10 to-purple-500/10 backdrop-blur-sm p-8 rounded-3xl border border-blue-400/20 hover:border-blue-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 group">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-blue-300">Our Vision</h3>
+            </div>
+            <p class="text-theme-secondary leading-relaxed text-lg">
+              To create a robust ecosystem that connects students with industry opportunities, ensuring every graduate finds meaningful employment and organizations discover exceptional talent.
+            </p>
+          </div>
+
+          <!-- Mission Card -->
+          <div class="fade-up delay-200 bg-gradient-to-br from-orange-500/10 to-pink-500/10 backdrop-blur-sm p-8 rounded-3xl border border-orange-400/20 hover:border-orange-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500/20 group">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-orange-300">Our Mission</h3>
+            </div>
+            <p class="text-theme-secondary leading-relaxed text-lg">
+              To empower placement officers with cutting-edge resources, facilitate industry-academia collaboration, and organize transformative events that shape the future of career development in Telangana.
+            </p>
+          </div>
+        </div>
+
+        <!-- President's Message Section -->
+        <div id="presidents-note" class="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-3xl overflow-hidden shadow-2xl p-8 md:p-12">
+          <!-- President Image - Float Left -->
+          <div class="float-left mr-8 mb-6 w-full md:w-64 lg:w-72">
+            <div class="relative group">
+              <!-- Decorative Frame -->
+              <div class="absolute -inset-1 bg-gradient-to-r from-orange-500 via-blue-500 to-orange-500 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
+              
+              <!-- Image Container -->
+              <div class="relative bg-gradient-to-br from-slate-900 to-slate-800 p-3 rounded-2xl">
+                <div class="relative rounded-xl overflow-hidden shadow-2xl">
+                  <Image 
+                    src={presidentImage} 
+                    alt="Dr Jayaram - President" 
+                    class="w-full h-auto object-cover aspect-[3/4]"
+                  />
+                  <!-- Elegant Overlay -->
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                </div>
+                
+                <!-- Corner Accents -->
+                <div class="absolute top-1 left-1 w-6 h-6 border-t-2 border-l-2 border-orange-400 rounded-tl-xl"></div>
+                <div class="absolute top-1 right-1 w-6 h-6 border-t-2 border-r-2 border-orange-400 rounded-tr-xl"></div>
+                <div class="absolute bottom-1 left-1 w-6 h-6 border-b-2 border-l-2 border-blue-400 rounded-bl-xl"></div>
+                <div class="absolute bottom-1 right-1 w-6 h-6 border-b-2 border-r-2 border-blue-400 rounded-br-xl"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- President's Message Text - Flows around and below image -->
+          <div class="text-theme-secondary leading-relaxed text-base space-y-4">
+            <p>
+              It gives me immense pleasure to welcome you all to the <span class="font-semibold text-orange-400">TTPOA – Global TPO & HR Summit 2025</span> being held at Hyderabad.
+            </p>
+            
+            <p>
+              The 1st Global TPO & HR Summit will be an annual landmark summit involving academia and the industry to collaborate in advancing the latest technologies and understanding the skills for the next generation.
+            </p>
+            
+            <p>
+              The theme of the Global TPO & HR Summit is <span class="font-semibold text-orange-400">Talent – Trade – Tourism</span>, in exploring the opportunity and strengthening the workforce as per the requirements of the industry.
+            </p>
+            
+            <p>
+              I extend a warm welcome to all the Training and Placement Officers across India, industry leaders, academic partners, training partners, overseas partners and global partners. I feel your insights and contributions will help to shape pathways for inclusive, skillful and future-ready leaders.
+            </p>
+
+            <p>
+              The Telangana Training & Placement Officers Association (TTPOA) serves as a vital bridge between academia and industry, bringing together placement professionals from colleges and universities across Telangana state. Our mission is to empower placement officers with the latest industry trends, recruitment strategies, and networking opportunities that directly benefit our students.
+            </p>
+
+            <p>
+              Through our collaborative efforts, we have successfully facilitated thousands of placements, organized numerous skill development workshops, and established strong partnerships with leading companies. The Global TPO & HR Summit represents our commitment to creating a platform where education meets opportunity, and where every student gets the chance to build a successful career.
+            </p>
+
+            <p>
+              I look forward to your active participation and meaningful engagement that will contribute to shaping the future of placement practices and student success across our region and beyond.
+            </p>
+
+            <div class="pt-6 text-right clear-both">
+              <p class="text-theme-primary font-semibold">Warm Regards,</p>
+              <p class="text-orange-400 font-bold text-lg mt-2">Dr Jayaram</p>
+              <p class="text-theme-muted text-sm mt-1">President, TTPOA</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Mission Section -->
-    <section class="section-padding bg-white/5 backdrop-blur-sm">
+    <section id="about" class="section-padding bg-white/5 backdrop-blur-sm">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
           <div class="fade-left">
@@ -178,6 +293,42 @@ import image2 from '../assets/images/Event-2_1.jpeg';
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-2">Innovation</h3>
             <p class="text-gray-600 text-sm">Embracing new ideas and technologies</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collaborations Section -->
+    <section class="section-padding bg-gradient-to-b from-slate-50/20 to-transparent backdrop-blur-sm">
+      <div class="max-w-7xl mx-auto px-1 sm:px-1.5 lg:px-2">
+        <div class="text-center mb-16">
+          <h2 class="fade-up delay-100 text-3xl md:text-4xl font-bold text-theme-primary mb-4">
+            Our Collaborations
+          </h2>
+          <p class="fade-up delay-200 text-lg text-theme-secondary max-w-2xl mx-auto">
+            Building strong partnerships across India to strengthen the TPO network
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div class="value-card fade-up delay-100 text-center p-8 bg-slate-50 rounded-2xl hover:shadow-lg transition-all duration-500">
+            <div class="w-24 h-24 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
+              <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Andhra Pradesh TPO Association</h3>
+            <p class="text-gray-600 text-sm">Collaborative initiatives for placement excellence across South India</p>
+          </div>
+
+          <div class="value-card fade-up delay-200 text-center p-8 bg-slate-50 rounded-2xl hover:shadow-lg transition-all duration-500">
+            <div class="w-24 h-24 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+              <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Tamil Nadu TPO Association</h3>
+            <p class="text-gray-600 text-sm">Strategic partnerships to enhance student placement opportunities</p>
           </div>
         </div>
       </div>
