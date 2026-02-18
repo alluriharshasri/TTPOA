@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login - TTPOA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --nav-bg: rgba(30, 58, 138, 0.85);
+      --card-bg: rgba(30, 58, 138, 0.60);
+      --card-border: rgba(59, 130, 246, 0.30);
+      --form-bg: rgba(30, 58, 138, 0.50);
+      --form-border: rgba(255, 255, 255, 0.20);
+      --form-focus: rgba(59, 130, 246, 0.50);
+      --form-text: #ffffff;
+      --form-placeholder: rgba(255, 255, 255, 0.45);
+      --text-primary: #e5e7eb;
+      --text-muted: rgba(255, 255, 255, 0.60);
+      --orange: #f97316;
+      --orange-dark: #ea580c;
+      --blue: #3b82f6;
+      --blue-dark: #2563eb;
+    }
+    html, body { min-height: 100vh; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--text-primary); overflow-x: hidden; }
+    body {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 40%, #1e40af 70%, #1e3a8a 100%);
+      background-size: 400% 400%;
+      animation: gradientFlow 12s ease infinite;
+      display: flex; align-items: center; justify-content: center; padding: 2rem 1rem;
+    }
+    @keyframes gradientFlow { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+    .orb { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+    .orb-1 { width: 400px; height: 400px; background: rgba(59,130,246,0.15); top: -100px; right: -100px; }
+    .orb-2 { width: 300px; height: 300px; background: rgba(249,115,22,0.12); bottom: -80px; left: -80px; }
+    .orb-3 { width: 250px; height: 250px; background: rgba(30,64,175,0.20); top: 50%; left: 50%; transform: translate(-50%,-50%); }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 50px 50px; pointer-events: none; z-index: 0;
+    }
+    .login-wrapper { position: relative; z-index: 10; width: 100%; max-width: 440px; }
+    .brand-banner { text-align: center; margin-bottom: 2rem; }
+    .logo-ring {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 72px; height: 72px; border-radius: 1rem;
+      background: linear-gradient(135deg, var(--orange), var(--blue));
+      margin-bottom: 1rem; box-shadow: 0 8px 32px rgba(249,115,22,0.35);
+    }
+    .logo-ring svg { width: 36px; height: 36px; stroke: white; fill: none; }
+    .brand-title {
+      font-size: 1.75rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--orange), #fb923c);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 0.25rem;
+    }
+    .brand-sub { font-size: 0.75rem; font-weight: 600; color: var(--orange); letter-spacing: 0.08em; text-transform: uppercase; }
+    .brand-desc { font-size: 0.875rem; color: var(--text-muted); margin-top: 0.5rem; }
+    .glass-card {
+      background: var(--card-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border); border-radius: 1.5rem; padding: 2.5rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    }
+    .card-strip {
+      background: var(--nav-bg); backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border); border-radius: 0.875rem;
+      padding: 0.875rem 1.25rem; margin-bottom: 2rem; text-align: center;
+    }
+    .card-strip p { font-size: 0.875rem; font-weight: 600; color: rgba(255,255,255,0.9); }
+    .form-group { margin-bottom: 1.25rem; }
+    label {
+      display: block; font-size: 0.78rem; font-weight: 500;
+      color: rgba(255,255,255,0.70); margin-bottom: 0.5rem;
+      letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    .input-wrap { position: relative; }
+    .input-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.40); pointer-events: none; }
+    .input-icon svg { width: 18px; height: 18px; stroke: currentColor; fill: none; display: block; }
+    input[type="text"], input[type="password"] {
+      width: 100%; padding: 0.875rem 1.25rem 0.875rem 2.75rem;
+      background: var(--form-bg); border: 2px solid var(--form-border); border-radius: 0.75rem;
+      color: var(--form-text); font-size: 0.9375rem; font-family: inherit;
+      transition: border-color 0.3s, box-shadow 0.3s; outline: none;
+    }
+    input::placeholder { color: var(--form-placeholder); }
+    input:focus { border-color: var(--form-focus); box-shadow: 0 0 0 3px rgba(59,130,246,0.25); }
+    .toggle-pwd {
+      position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+      background: none; border: none; color: rgba(255,255,255,0.40); cursor: pointer; padding: 0;
+      transition: color 0.2s;
+    }
+    .toggle-pwd:hover { color: rgba(255,255,255,0.9); }
+    .toggle-pwd svg { width: 18px; height: 18px; stroke: currentColor; fill: none; display: block; }
+    .error-box {
+      display: none; background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.30);
+      border-radius: 0.75rem; padding: 0.875rem 1.25rem; color: #fca5a5;
+      font-size: 0.875rem; margin-bottom: 1.25rem;
+    }
+    .btn-login {
+      width: 100%; padding: 1rem 2rem;
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+      color: white; border: none; border-radius: 0.75rem;
+      font-size: 1rem; font-weight: 700; font-family: inherit; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 0.625rem;
+      box-shadow: 0 8px 24px rgba(249,115,22,0.35);
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    .btn-login:hover:not(:disabled) { background: linear-gradient(135deg, var(--orange-dark) 0%, #c2410c 100%); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(249,115,22,0.45); }
+    .btn-login:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+    .btn-login svg { width: 20px; height: 20px; stroke: currentColor; fill: none; }
+    .bottom-bar { display: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spin { animation: spin 0.8s linear infinite; display: inline-block; }
+    #authLoader {
+      position: fixed; inset: 0; z-index: 999;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 40%, #1e40af 70%, #1e3a8a 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .loader-ring {
+      width: 48px; height: 48px; border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.12);
+      border-top-color: var(--orange);
+      animation: spin 0.7s linear infinite;
+    }
+  </style>
+</head>
+<body>
+  <!-- Auth loading overlay -->
+  <div id="authLoader"><div class="loader-ring"></div></div>
+
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div class="login-wrapper">
+    <div class="brand-banner">
+      <div class="logo-ring">
+        <svg viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+      </div>
+      <div class="brand-title">TTPOA Admin</div>
+      <div class="brand-sub">One &amp; Only Registered TPO Association</div>
+      <div class="brand-desc">Sign in to manage your website content</div>
+    </div>
+
+    <div class="glass-card">
+      <div class="card-strip">
+        <p>Telangana Training &amp; Placement Officers Association</p>
+      </div>
+
+      <div id="errorMessage" class="error-box"></div>
+
+      <form id="loginForm" novalidate>
+        <div class="form-group" style="margin-bottom:1.25rem">
+          <label for="username">Username</label>
+          <div class="input-wrap">
+            <span class="input-icon">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            </span>
+            <input type="text" id="username" name="username" required placeholder="Enter username" autocomplete="username">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-wrap">
+            <span class="input-icon">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            </span>
+            <input type="password" id="password" name="password" required placeholder="Enter password" autocomplete="current-password">
+            <button type="button" id="togglePassword" class="toggle-pwd" aria-label="Toggle password visibility">
+              <svg id="eyeOpen" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              <svg id="eyeClosed" viewBox="0 0 24 24" style="display:none"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" id="loginBtn" class="btn-login">
+          <span>Sign In</span>
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:1.5rem;font-size:0.78rem;color:rgba(255,255,255,0.45);position:relative;z-index:10">
+    &copy; 2026 TTPOA &mdash; <a href="http://localhost:4321/TTPOA/" target="_blank" style="color:var(--orange);text-decoration:none;font-weight:600">Back to Website</a>
+  </div>
+
+  <script>
+    function showLogin() {
+      const el = document.getElementById('authLoader');
+      if (el) el.remove();
+    }
+    // Hard fallback: always show login after 3s no matter what
+    const authTimer = setTimeout(showLogin, 3000);
+
+    fetch('/api/auth/check', { credentials: 'include' })
+      .then(r => r.json())
+      .then(d => {
+        clearTimeout(authTimer);
+        if (d.authenticated) {
+          location.href = '/ttpoa/admin/dashboard';
+        } else {
+          showLogin();
+        }
+      })
+      .catch(() => { clearTimeout(authTimer); showLogin(); });
+
+    document.getElementById('togglePassword').addEventListener('click', () => {
+      const pwd = document.getElementById('password');
+      const isText = pwd.type === 'text';
+      pwd.type = isText ? 'password' : 'text';
+      document.getElementById('eyeOpen').style.display = isText ? '' : 'none';
+      document.getElementById('eyeClosed').style.display = isText ? 'none' : '';
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const err = document.getElementById('errorMessage');
+      const btn = document.getElementById('loginBtn');
+      err.style.display = 'none';
+      btn.disabled = true;
+      btn.innerHTML = `<span class="spin" style="width:20px;height:20px;display:inline-block">&#8635;</span> <span>Signing in...</span>`;
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include',
+          body: JSON.stringify({ username: document.getElementById('username').value.trim(), password: document.getElementById('password').value })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          location.href = '/ttpoa/admin/dashboard';
+        } else {
+          err.textContent = data.error || 'Login failed. Please try again.';
+          err.style.display = 'block';
+          resetBtn();
+        }
+      } catch {
+        err.textContent = 'Connection error. Make sure the backend server is running.';
+        err.style.display = 'block';
+        resetBtn();
+      }
+
+      function resetBtn() {
+        btn.disabled = false;
+        btn.innerHTML = `<span>Sign In</span><svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>`;
+      }
+    });
+  </script>
+</body>
+</html>

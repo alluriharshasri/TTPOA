@@ -5,7 +5,7 @@ import AntigravityBg from '../components/AntigravityBg.astro';
 import Footer from '../components/Footer.astro';
 import { Image } from 'astro:assets';
 
-// Import event images
+// Import event images (fallback)
 import event1Cover from '../assets/images/Event-1_1.jpeg';
 import event1_2 from '../assets/images/Event-1_2.jpeg';
 import event1_3 from '../assets/images/Event-1_3.jpeg';
@@ -18,8 +18,8 @@ import event2_3 from '../assets/images/Event-2_3.jpeg';
 import event2_4 from '../assets/images/Event-2_4.jpeg';
 import event2_5 from '../assets/images/Event-2_5.jpeg';
 
-// Events data (newest first)
-const events = [
+// Fallback events data
+const fallbackEvents = [
   {
     id: 'event-2',
     name: 'Industry Academia Collaboration Summit 2026',
@@ -45,7 +45,7 @@ const events = [
   <AntigravityBg />
   <Navbar currentPage="events" />
   
-  <main class="pt-32 lg:pt-36 pb-20 relative">
+  <main class="pt-32 lg:pt-36 pb-4 relative">
     <!-- Decorative Background Elements -->
     <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
     <div class="absolute top-40 right-10 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
@@ -75,66 +75,23 @@ const events = [
           <div class="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Event Card 1 -->
-          <div class="fade-up delay-100 glass-card p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 group border border-white/10">
-            <div class="flex items-start justify-between mb-4">
-              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg">
-                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                </svg>
-              </div>
-              <span class="text-xs font-bold text-orange-400 bg-orange-400/10 px-3 py-1 rounded-full">Coming Soon</span>
-            </div>
-            <h3 class="text-xl font-bold text-heading mb-2 group-hover:text-blue-400 transition-colors">TPO Network Meet 2025</h3>
-            <p class="text-body text-sm mb-4 leading-relaxed">Quarterly networking event for TPOs across Telangana to share best practices and opportunities.</p>
-            <div class="flex items-center text-muted text-sm mb-2">
-              <svg class="w-4 h-4 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-              </svg>
-              <span class="font-medium">TBA</span>
-            </div>
+        <!-- Dynamic upcoming events container -->
+        <div id="upcomingEventsContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Placeholder cards (replaced by JS if API available) -->
+          <div class="fade-up delay-100 glass-card p-6 rounded-2xl shadow-xl text-center border border-white/10">
+            <p class="text-muted">Loading upcoming events...</p>
           </div>
+        </div>
 
-          <!-- Event Card 2 -->
-          <div class="fade-up delay-200 glass-card p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 group border border-white/10">
-            <div class="flex items-start justify-between mb-4">
-              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg">
-                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                </svg>
-              </div>
-              <span class="text-xs font-bold text-orange-400 bg-orange-400/10 px-3 py-1 rounded-full">Coming Soon</span>
-            </div>
-            <h3 class="text-xl font-bold text-heading mb-2 group-hover:text-purple-400 transition-colors">Skill Development Workshop</h3>
-            <p class="text-body text-sm mb-4 leading-relaxed">Industry-focused training sessions to enhance student employability and career readiness.</p>
-            <div class="flex items-center text-muted text-sm mb-2">
-              <svg class="w-4 h-4 mr-2 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-              </svg>
-              <span class="font-medium">TBA</span>
-            </div>
+        <!-- Ongoing Events Section (shown if any) -->
+        <div id="ongoingEventsSection" class="hidden mt-12">
+          <div class="mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+              Ongoing Events
+            </h2>
+            <div class="h-1 w-24 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"></div>
           </div>
-
-          <!-- Event Card 3 -->
-          <div class="fade-up delay-300 glass-card p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 group border border-white/10">
-            <div class="flex items-start justify-between mb-4">
-              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-lg">
-                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-              </div>
-              <span class="text-xs font-bold text-orange-400 bg-orange-400/10 px-3 py-1 rounded-full">Coming Soon</span>
-            </div>
-            <h3 class="text-xl font-bold text-heading mb-2 group-hover:text-orange-400 transition-colors">Industry Connect Summit</h3>
-            <p class="text-body text-sm mb-4 leading-relaxed">Bridge the gap between academia and industry with direct interactions and partnership opportunities.</p>
-            <div class="flex items-center text-muted text-sm mb-2">
-              <svg class="w-4 h-4 mr-2 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-              </svg>
-              <span class="font-medium">TBA</span>
-            </div>
-          </div>
+          <div id="ongoingEventsContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         </div>
       </div>
     </section>
@@ -149,25 +106,19 @@ const events = [
       </div>
     </div>
 
-    <!-- Timeline -->
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Dynamic Recent Events Container -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" id="recentEventsContainer">
+      <!-- Fallback static timeline -->
       <div class="relative">
-        <!-- Timeline Line -->
         <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full timeline-line"></div>
-
-        <!-- Events -->
         <div class="space-y-24">
-          {events.map((event, index) => (
+          {fallbackEvents.map((event, index) => (
             <div 
               class={`relative timeline-item ${index % 2 === 0 ? 'timeline-left' : 'timeline-right'}`}
               data-event-id={event.id}
             >
-              <!-- Timeline Dot -->
               <div class="absolute left-1/2 top-0 transform -translate-x-1/2 w-6 h-6 rounded-full timeline-dot z-10"></div>
-
-              <!-- Event Card -->
               <div class={`glass-card p-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer event-card ${index % 2 === 0 ? 'mr-auto lg:mr-[52%]' : 'ml-auto lg:ml-[52%]'}`}>
-                <!-- Cover Image -->
                 <div class="relative overflow-hidden rounded-xl mb-3 group">
                   <Image 
                     src={event.coverImage} 
@@ -179,11 +130,8 @@ const events = [
                     <p class="text-sm font-medium">Click to view gallery →</p>
                   </div>
                 </div>
-
-                <!-- Event Details -->
                 <div>
                   <h3 class="text-xl font-bold text-heading mb-2">{event.name}</h3>
-                  
                   <div class="space-y-1.5 mb-3">
                     <div class="flex items-center text-muted text-sm">
                       <svg class="w-4 h-4 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -191,7 +139,6 @@ const events = [
                       </svg>
                       <span class="font-medium">{event.date}</span>
                     </div>
-                    
                     <div class="flex items-start text-muted text-sm">
                       <svg class="w-4 h-4 mr-2 mt-0.5 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
@@ -200,9 +147,7 @@ const events = [
                       <span class="font-medium">{event.venue}</span>
                     </div>
                   </div>
-
                   <p class="text-body text-sm leading-relaxed">{event.description}</p>
-
                   <div class="mt-3 flex items-center text-orange-500 font-medium text-sm">
                     <span>View Gallery</span>
                     <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -394,7 +339,7 @@ const events = [
 
   /* Fade animations */
   .fade-up {
-    animation: fadeUp 0.8s ease-out;
+    animation: fadeUp 0.8s ease-out forwards;
   }
 
   @keyframes fadeUp {
@@ -457,8 +402,10 @@ const events = [
   }
 </style>
 
-<script define:vars={{ events }}>
-  // Event data with resolved image paths
+<script define:vars={{ events: fallbackEvents }}>
+  const API_BASE = window.TTPOA_API_BASE || 'http://localhost:3001';
+
+  // Event data with resolved image paths (fallback)
   const eventsData = {};
   
   events.forEach(event => {
@@ -472,7 +419,180 @@ const events = [
   let currentEventId = '';
   let currentImageIndex = 0;
 
+  // ========== DYNAMIC EVENT LOADING ==========
+  function buildEventCard(event, colorClass = 'blue') {
+    const colors = { blue: 'from-blue-500 to-blue-600', purple: 'from-purple-500 to-purple-600', orange: 'from-orange-500 to-orange-600', green: 'from-green-500 to-green-600' };
+    const hoverColors = { blue: 'text-blue-400', purple: 'text-purple-400', orange: 'text-orange-400', green: 'text-green-400' };
+    const grad = colors[colorClass] || colors.blue;
+    const hover = hoverColors[colorClass] || hoverColors.blue;
+    
+    const dateStr = event.date ? new Date(event.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'TBA';
+    
+    let badges = '';
+    if (event.registration_open) {
+      badges += `<span class="text-xs font-bold text-green-400 bg-green-400/10 px-2 py-0.5 rounded-full">Registration Open</span>`;
+      if (event.is_paid) {
+        badges += ` <span class="text-xs font-bold text-orange-400 bg-orange-400/10 px-2 py-0.5 rounded-full">₹${event.price}</span>`;
+      } else {
+        badges += ` <span class="text-xs font-bold text-blue-400 bg-blue-400/10 px-2 py-0.5 rounded-full">Free</span>`;
+      }
+    }
+
+    return `
+      <div class="glass-card p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 group border border-white/10">
+        ${event.cover_image ? `<div class="relative overflow-hidden rounded-xl mb-4"><img src="${API_BASE}${event.cover_image}" alt="${event.name}" class="w-full h-40 object-cover transform group-hover:scale-110 transition-transform duration-500"></div>` : `
+        <div class="flex items-start justify-between mb-4">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br ${grad} flex items-center justify-center shadow-lg">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <span class="text-xs font-bold text-orange-400 bg-orange-400/10 px-3 py-1 rounded-full">${event.status === 'ongoing' ? 'Happening Now' : 'Coming Soon'}</span>
+        </div>`}
+        <h3 class="text-xl font-bold text-heading mb-2 group-hover:${hover} transition-colors">${event.name}</h3>
+        <p class="text-body text-sm mb-4 leading-relaxed">${event.description || ''}</p>
+        <div class="flex items-center text-muted text-sm mb-2">
+          <svg class="w-4 h-4 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+          <span class="font-medium">${dateStr}</span>
+        </div>
+        ${event.venue ? `<div class="flex items-center text-muted text-sm mb-2"><svg class="w-4 h-4 mr-2 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg><span class="font-medium">${event.venue}</span></div>` : ''}
+        <div class="flex flex-wrap gap-1 mt-2">${badges}</div>
+        ${event.registration_open && event.registration_link ? `<a href="${event.registration_link}" target="_blank" class="inline-flex items-center gap-2 mt-3 px-4 py-2 bg-gradient-to-r from-orange-500 to-blue-500 rounded-lg text-white text-sm font-bold hover:shadow-lg transition-all">Register Now</a>` : ''}
+      </div>
+    `;
+  }
+
+  function buildRecentEventCard(event, index) {
+    const dateStr = event.date ? new Date(event.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : '';
+    const side = index % 2 === 0 ? 'mr-auto lg:mr-[52%]' : 'ml-auto lg:ml-[52%]';
+    
+    return `
+      <div class="relative timeline-item visible ${index % 2 === 0 ? 'timeline-left' : 'timeline-right'}" data-event-id="dynamic-${event.id}">
+        <div class="absolute left-1/2 top-0 transform -translate-x-1/2 w-6 h-6 rounded-full timeline-dot z-10"></div>
+        <div class="glass-card p-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer event-card ${side}" onclick="openDynamicLightbox(${event.id})">
+          ${event.cover_image ? `<div class="relative overflow-hidden rounded-xl mb-3 group"><img src="${API_BASE}${event.cover_image}" alt="${event.name}" class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div><div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"><p class="text-sm font-medium">Click to view gallery →</p></div></div>` : ''}
+          <div>
+            <h3 class="text-xl font-bold text-heading mb-2">${event.name}</h3>
+            <div class="space-y-1.5 mb-3">
+              <div class="flex items-center text-muted text-sm">
+                <svg class="w-4 h-4 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <span class="font-medium">${dateStr}</span>
+              </div>
+              ${event.venue ? `<div class="flex items-start text-muted text-sm"><svg class="w-4 h-4 mr-2 mt-0.5 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg><span class="font-medium">${event.venue}</span></div>` : ''}
+            </div>
+            <p class="text-body text-sm leading-relaxed">${event.description || ''}</p>
+            ${event.gallery && event.gallery.length > 0 ? `<div class="mt-3 flex items-center text-orange-500 font-medium text-sm"><span>View Gallery (${event.gallery.length} photos)</span><svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg></div>` : ''}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Store dynamic events data for lightbox
+  let dynamicEventsData = {};
+
+  async function loadDynamicEvents() {
+    try {
+      // Load upcoming events
+      const [upcomingRes, ongoingRes, recentRes] = await Promise.all([
+        fetch(`${API_BASE}/api/events/upcoming`),
+        fetch(`${API_BASE}/api/events/ongoing`),
+        fetch(`${API_BASE}/api/events/recent`)
+      ]);
+
+      const upcoming = await upcomingRes.json();
+      const ongoing = await ongoingRes.json();
+      const recent = await recentRes.json();
+
+      // Render upcoming
+      const upcomingContainer = document.getElementById('upcomingEventsContainer');
+      if (upcomingContainer) {
+        if (upcoming.length > 0) {
+          const colorCycle = ['blue', 'purple', 'orange'];
+          upcomingContainer.innerHTML = upcoming.map((e, i) => buildEventCard(e, colorCycle[i % 3])).join('');
+        } else {
+          upcomingContainer.innerHTML = '<div class="glass-card p-6 rounded-2xl text-center border border-white/10 col-span-3"><p class="text-muted">No upcoming events at the moment. Stay tuned!</p></div>';
+        }
+      }
+
+      // Render ongoing
+      const ongoingSection = document.getElementById('ongoingEventsSection');
+      const ongoingContainer = document.getElementById('ongoingEventsContainer');
+      if (ongoingSection && ongoingContainer) {
+        if (ongoing.length > 0) {
+          ongoingSection.classList.remove('hidden');
+          ongoingContainer.innerHTML = ongoing.map(e => buildEventCard(e, 'green')).join('');
+        }
+      }
+
+      // Render recent events
+      if (recent.length > 0) {
+        const recentContainer = document.getElementById('recentEventsContainer');
+        if (recentContainer) {
+          // Store gallery data for lightbox
+          recent.forEach(event => {
+            dynamicEventsData[event.id] = {
+              name: event.name,
+              date: new Date(event.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+              images: (event.gallery || []).map(img => `${API_BASE}${img.image_path}`)
+            };
+            // Also add cover image to gallery if gallery has images
+            if (event.cover_image && dynamicEventsData[event.id].images.length === 0) {
+              dynamicEventsData[event.id].images.push(`${API_BASE}${event.cover_image}`);
+            }
+          });
+
+          recentContainer.innerHTML = `
+            <div class="relative">
+              <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full timeline-line"></div>
+              <div class="space-y-24">
+                ${recent.map((event, index) => buildRecentEventCard(event, index)).join('')}
+              </div>
+            </div>
+          `;
+
+          // Re-observe timeline items
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+          }, { threshold: 0.2, rootMargin: '0px 0px -100px 0px' });
+          document.querySelectorAll('.timeline-item').forEach(item => observer.observe(item));
+        }
+      }
+    } catch (e) {
+      // API unavailable - fallback content already rendered
+      console.log('Using fallback event data');
+    }
+  }
+
+  // Open lightbox for dynamic events
+  window.openDynamicLightbox = function(eventId) {
+    const event = dynamicEventsData[eventId];
+    if (!event || !event.images || event.images.length === 0) return;
+
+    currentEventId = `dyn-${eventId}`;
+    currentImageIndex = 0;
+    eventsData[currentEventId] = event;
+
+    const lightbox = document.getElementById('lightbox');
+    const title = document.getElementById('lightbox-title');
+    const date = document.getElementById('lightbox-date');
+    
+    if (title) title.textContent = event.name;
+    if (date) date.textContent = event.date;
+    
+    updateLightboxImage();
+    lightbox?.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
   document.addEventListener('DOMContentLoaded', () => {
+    // Load dynamic events
+    loadDynamicEvents();
+
     // Intersection Observer for timeline items
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -489,12 +609,14 @@ const events = [
       observer.observe(item);
     });
 
-    // Event card click handlers
+    // Event card click handlers (for fallback static cards)
     document.querySelectorAll('.event-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const eventId = card.parentElement.dataset.eventId;
-        openLightbox(eventId);
-      });
+      if (!card.hasAttribute('onclick')) {
+        card.addEventListener('click', () => {
+          const eventId = card.parentElement?.dataset?.eventId;
+          if (eventId) openLightbox(eventId);
+        });
+      }
     });
 
     // Lightbox controls
@@ -518,10 +640,8 @@ const events = [
       navigateImage(1);
     });
 
-    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
       if (!lightbox?.classList.contains('active')) return;
-      
       if (e.key === 'Escape') {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
@@ -532,7 +652,6 @@ const events = [
       }
     });
 
-    // Click backdrop to close
     lightbox?.addEventListener('click', (e) => {
       if (e.target === lightbox) {
         lightbox.classList.remove('active');

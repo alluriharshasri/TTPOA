@@ -1,12 +1,11 @@
 ---
-const news = [
+// Fallback news items (used if API is unavailable)
+const fallbackNews = [
   { text: "🎓 New Industry Partnership: TTPOA collaborates with 50+ Fortune 500 companies for campus placements", link: `${import.meta.env.BASE_URL}/services/` },
   { text: "📢 Upcoming Workshop: Advanced Interview Preparation scheduled for March 2026", link: `${import.meta.env.BASE_URL}/services/` },
   { text: "🏆 Achievement: 95% placement success rate recorded in 2025-26 academic year", link: `${import.meta.env.BASE_URL}/about/` },
   { text: "💼 Job Fair Alert: Mega recruitment drive on March 15, 2026 - Register Now!", link: `${import.meta.env.BASE_URL}/contact/` },
   { text: "🌟 Scholarship Announcement: Merit-based scholarships available for eligible students", link: `${import.meta.env.BASE_URL}/services/` },
-  { text: "📊 Industry Report: IT sector hiring up by 40% in Telangana this quarter", link: `${import.meta.env.BASE_URL}/about/` },
-  { text: "🔔 Registration Open: Summer internship program applications now being accepted", link: `${import.meta.env.BASE_URL}/services/` },
 ];
 ---
 
@@ -19,14 +18,14 @@ const news = [
       Latest Updates
     </div>
     <div class="ticker-content flex-1 overflow-hidden py-3">
-      <div class="ticker-scroll flex gap-12 animate-ticker">
-        {news.map((item) => (
-          <a href={item.link} class="ticker-link text-sm font-medium whitespace-nowrap flex items-center gap-2 transition-colors duration-300" style="color: var(--color-ticker-text);">
+      <div class="ticker-scroll flex gap-12 animate-ticker" id="tickerScrollContainer">
+        {fallbackNews.map((item) => (
+          <a href={item.link} class="ticker-link text-sm font-medium whitespace-nowrap flex items-center gap-2">
             {item.text}
           </a>
         ))}
-        {news.map((item) => (
-          <a href={item.link} class="ticker-link text-sm font-medium whitespace-nowrap flex items-center gap-2 transition-colors duration-300" style="color: var(--color-ticker-text);">
+        {fallbackNews.map((item) => (
+          <a href={item.link} class="ticker-link text-sm font-medium whitespace-nowrap flex items-center gap-2">
             {item.text}
           </a>
         ))}
@@ -34,6 +33,31 @@ const news = [
     </div>
   </div>
 </div>
+
+<script>
+  // Dynamically load news ticker from backend API
+  (async function loadDynamicTicker() {
+    try {
+      const API_BASE = window.TTPOA_API_BASE || 'http://localhost:3001';
+      const res = await fetch(`${API_BASE}/api/news-ticker`);
+      if (!res.ok) return;
+      const items = await res.json();
+      if (!items || items.length === 0) return;
+
+      const container = document.getElementById('tickerScrollContainer');
+      if (!container) return;
+
+      // Build ticker HTML (duplicate for seamless scroll)
+      const buildLinks = (newsItems) => newsItems.map(item =>
+        `<a href="${item.link || '#'}" class="ticker-link text-sm font-medium whitespace-nowrap flex items-center gap-2">${item.text}</a>`
+      ).join('');
+
+      container.innerHTML = buildLinks(items) + buildLinks(items);
+    } catch (e) {
+      // Fallback items already rendered server-side
+    }
+  })();
+</script>
 
 <style>
   .news-ticker-wrapper {
@@ -61,10 +85,6 @@ const news = [
     animation-play-state: paused;
   }
 
-  .ticker-link:hover {
-    color: #f97316 !important;
-  }
-
   @keyframes scroll-left {
     0% {
       transform: translateX(0);
@@ -72,5 +92,16 @@ const news = [
     100% {
       transform: translateX(-50%);
     }
+  }
+</style>
+
+<style is:global>
+  .ticker-link {
+    color: var(--color-ticker-text, white);
+    transition: color 0.25s ease, text-shadow 0.25s ease;
+  }
+  .ticker-link:hover {
+    color: #f97316 !important;
+    text-shadow: 0 0 14px rgba(249, 115, 22, 0.45);
   }
 </style>
